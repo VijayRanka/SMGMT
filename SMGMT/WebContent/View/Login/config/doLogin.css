@@ -1,0 +1,16 @@
+.lft-widget
+	{
+	margin-left:0px;
+	}
+.widget-prop
+	{
+		box-shadow: 13px 13px 15px rgba(37, 36, 36, 0.65);
+	    width: 550px;
+	    position: relative;
+	    z-index: 99;
+	    margin: -455px auto 0 auto;
+	}
+.widget-form-block .box-widget 
+	{
+    padding: 65px 70px;
+	}
