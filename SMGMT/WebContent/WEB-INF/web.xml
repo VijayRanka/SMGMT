@@ -38,4 +38,14 @@
     <url-pattern>/Student.do</url-pattern>
   </servlet-mapping>
 <!-- *************************************************************   END HIMANSHU *************************************************************** -->
+<!--  ***************************************************************  VIJAY****************************************************************** -->
+<servlet>
+    <servlet-name>UserLogin</servlet-name>
+    <servlet-class>com.servletStore.login.controller.UserLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogin</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+<!--  *************************************************************** END VIJAY****************************************************************** -->
 </web-app>
