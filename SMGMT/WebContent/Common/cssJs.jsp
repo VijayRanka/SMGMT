@@ -17,6 +17,27 @@
 
     <!-- Animation Css -->
     <link href="/SMGMT/Config/plugins/animate-css/animate.css" rel="stylesheet" />
+    
+    <!-- Colorpicker Css -->
+    <link href="/SMGMT/Config/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="/SMGMT/Config/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Multi Select Css -->
+    <link href="/SMGMT/Config/plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="/SMGMT/Config/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="/SMGMT/Config/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- noUISlider Css -->
+    <link href="/SMGMT/Config/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
     <!-- Morris Chart Css-->
     <link href="/SMGMT/Config/plugins/morrisjs/morris.css" rel="stylesheet" />
