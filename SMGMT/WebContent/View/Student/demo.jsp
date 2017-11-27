@@ -37,28 +37,79 @@
 	                            </h2>
 								<div class="row clearfix">
 									<div class="col-md-4">
-			                                    <select class="form-control show-tick" data-live-search="true" required="required">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<p>
+			                                        <b>Select School</b>
+			                                    </p>
+			                                    <select class="form-control show-tick" name="schoolId" multiple title="Select School" data-live-search="true" required="required">
 			                                        <option></option>
 			                                        <option>Burger, Shake and a Smile</option>
 			                                        <option>Sugar, Spice and all things nice</option>
 			                                    </select>
+			                                 </div>
+			                              </div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="middleName" required>
-												<label class="form-label">Middle Name</label>
+												<p>
+			                                        <b>Select Section</b>
+			                                    </p>
+			                                    <select class="form-control show-tick" name="sectionId" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="lastName" required>
-												<label class="form-label">Last Name</label>
+												<p>
+			                                        <b>Select Class</b>
+			                                    </p>
+			                                    <select class="form-control show-tick" name="classId" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="prnNo" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">PRN Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="datepicker form-control" placeholder="Please choose a date..." required="required">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+										
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="form-control-wrapper">
+											<div class="form-group label-floating is-empty">
+												<input type="text" id="date" class="form-control" data-dtp="dtp_PBeDf">
+												<label for="date" class="control-label">Date</label>
+											</div>
+										</div>
+									</div>
+					
 								</div>
 								<h2 class="card-inside-title">
 	                            	Personal Details
@@ -67,7 +118,7 @@
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="firstName" required onblur="this.value=$.trim(this.value)">
+												<input type="text" class="form-control" name="firstName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
 												<label class="form-label">First Name</label>
 											</div>
 										</div>
@@ -245,56 +296,65 @@
         </div>
     </section>
 
-    <!-- Jquery Core Js -->
+<!--     Jquery Core Js -->
     <script src="/SMGMT/Config/plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core Js -->
+<!--     Bootstrap Core Js -->
     <script src="/SMGMT/Config/plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
+<!--     Select Plugin Js -->
     <script src="/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-    <!-- Slimscroll Plugin Js -->
+<!--     Slimscroll Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
     
-    <!-- Bootstrap Colorpicker Js -->
+<!--     Bootstrap Colorpicker Js -->
     <script src="/SMGMT/Config/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 
-    <!-- Dropzone Plugin Js -->
+<!--     Dropzone Plugin Js -->
     <script src="/SMGMT/Config/plugins/dropzone/dropzone.js"></script>
 
-    <!-- Input Mask Plugin Js -->
+<!--     Input Mask Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
 
-    <!-- Multi Select Plugin Js -->
+<!--     Multi Select Plugin Js -->
     <script src="/SMGMT/Config/plugins/multi-select/js/jquery.multi-select.js"></script>
 
-    <!-- Jquery Spinner Plugin Js -->
+<!--     Jquery Spinner Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-spinner/js/jquery.spinner.js"></script>
 
-    <!-- Bootstrap Tags Input Plugin Js -->
+<!--     Bootstrap Tags Input Plugin Js -->
     <script src="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
 
-    <!-- noUISlider Plugin Js -->
+<!--     noUISlider Plugin Js -->
     <script src="/SMGMT/Config/plugins/nouislider/nouislider.js"></script>
 
-    <!-- Jquery Validation Plugin Css -->
+<!--     Jquery Validation Plugin Css -->
     <script src="/SMGMT/Config/plugins/jquery-validation/jquery.validate.js"></script>
 
-    <!-- JQuery Steps Plugin Js -->
+<!--     JQuery Steps Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-steps/jquery.steps.js"></script>
 
-    <!-- Sweet Alert Plugin Js -->
+<!--     Sweet Alert Plugin Js -->
     <script src="/SMGMT/Config/plugins/sweetalert/sweetalert.min.js"></script>
 
-    <!-- Waves Effect Plugin Js -->
+<!--     Waves Effect Plugin Js -->
     <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+<!--      Autosize Plugin Js -->
+    <script src="/SMGMT/Config/plugins/autosize/autosize.js"></script>
+    
+<!--      Moment Plugin Js -->
+    <script src="/SMGMT/Config/plugins/momentjs/moment.js"></script>
+    
+<!--     Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
-    <!-- Custom Js -->
+<!--     Custom Js -->
     <script src="/SMGMT/Config/js/admin.js"></script>
     <script src="/SMGMT/Config/js/pages/forms/form-validation.js"></script>
-
-    <!-- Demo Js -->
+	<script src="/SMGMT/Config/js/pages/forms/basic-form-elements.js"></script>
+<!--     Demo Js -->
     <script src="/SMGMT/Config/js/demo.js"></script>
 </body>
 

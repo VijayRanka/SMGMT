@@ -1,250 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-	
-	<title>AxilBoard Bootstrap 4 Admin Template</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="AxilBoard Bootstrap 4 Admin Template">
-	<meta name="author" content="CodePassenger">
-	
-	<!-- google fonts -->
-	<link href="https://fonts.googleapis.com/css?family=css?family=Robot%7cMaterial+Icons" rel="stylesheet" type='text/css'>
-	
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/bootstrap-formhelpers.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/bootstrap-slider.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/uploadfile.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/emoji.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/fullcalendar.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/lobipanel.min.css">
-    <link rel="stylesheet" href="/SMGMT/Config/assets/css/jquery.steps.css">
-	
-	<!-- Material Design CSS -->
-	<link rel="stylesheet" href="/SMGMT/Config/assets/css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" href="/SMGMT/Config/assets/css/ripples.min.css">
-	<link rel="stylesheet" href="/SMGMT/Config/assets/css/mdb.min.css">
-	
-	<!-- Responsive Mobile Menu -->
-	<link rel="stylesheet" href="/SMGMT/Config/assets/css/responsive-menu/jquery.accordion.css">
-	<link rel="stylesheet" href="/SMGMT/Config/css/vertical-menu.css">
-	
-    <link rel="stylesheet" href="/SMGMT/Config/css/app.css">
-	
-	<link rel="stylesheet" href="/SMGMT/Config/css/responsive.css">
-	
-	<link rel="stylesheet" href="/SMGMT/View/Staff/config/custom.css">
+<!-- =======================	CSS Include ======================= -->
+    <jsp:include page="/Common/cssJs.jsp"></jsp:include>
+<!-- =======================	End CSS Include ======================= -->
 </head>
-<body class="menu-collapsed">
-	
-	
-	<jsp:include page="/Common/header.jsp"></jsp:include>
-	<jsp:include page="/Common/left-navbar.jsp"></jsp:include>
-	
-	
-	
-	
-	<div class="apps-container-wrap page-container">
-		<div class="page-content">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="page-title-block">
-						<h4>Wizard</h4>
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#"><i class="ti-home"></i></a></li>
-							<li class="breadcrumb-item"><a href="#">Forms</a></li>
-							<li class="breadcrumb-item active">Wizard</li>
-						</ol>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="box-widget">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<div class="panel-title">
-										<h4>Add Staff</h4>
+
+<body class="theme-red">
+<!-- =======================	Header Include ======================= -->
+    <jsp:include page="/Common/header.jsp"></jsp:include>
+<!-- =======================	End Header Include ======================= -->
+<!-- =======================	Left Navbar Include ======================= -->
+    <jsp:include page="/Common/left-navbar.jsp"></jsp:include>
+<!-- =======================	End Left Navbar Include ======================= -->"WebContent/"
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                    	<ol class="breadcrumb breadcrumb-col-orange">
+			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
+			              <li><a href="javascript:void(0);"><i class="material-icons">person</i> Library</a></li>
+			              <li class="active"><i class="material-icons">archive</i> Data</li>
+			            </ol>
+                        <div class="header">
+                            <h2>Student Details</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" method="POST">
+	                            <!-- <h2 class="card-inside-title">
+	                            	School Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+			                                    <select class="form-control show-tick" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="middleName" required>
+												<label class="form-label">Middle Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								<h2 class="card-inside-title">
+	                            	Personal Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="firstName" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">First Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="middleName" required>
+												<label class="form-label">Middle Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="panel-body">
-									<div class="form-wizard-block form-block">
-										<form id="form-wizard-form" class=" form-common" action="#">
-											<div>
-												<div class="form-wizard-circle">
-													<span class="wizard-circle">01</span>
-													<p class="wizard-text">Registration</p>
-													<i class="fa fa-angle-right wizard-icon" aria-hidden="true"></i>
-												</div>
-												<section>
-													<h3 class="display-off">one</h3>
-													
-													
-													<div class="row lab">
-														<div class="form-group mrg-b-0 col-lg-12 ">
-															<label for="userName">Your Name</label>
-														</div>
-														<div class="col-lg-2"></div>
-														<div class="form-group col-lg-4">
-															<input id="userName" type="text" class="form-control extra-small required" placeholder="First Name">
-														</div>
-														<div class="form-group col-lg-4">
-															<input  type="text" class="form-control extra-small required" placeholder="Last Name">
-														</div>
-													</div>
-													
-													<div class="row lab">
-														 <div class="form-group mrg-b-0 col-12 lab">
-															<label for="username">User Name</label>
-														</div>
-														<div class="col-lg-2"></div>
-														<div class="form-group col-lg-4">
-															<input  type="text" id="username" class="form-control extra-small required" placeholder="User Name">
-														</div>
-													</div>	
-													
-													
-													<div class="row">
-														<div class="form-group mrg-b-0 col-12">
-															<label for="email">Email</label>
-														</div>
-														
-														<div class="form-group col-lg-6">
-															<input id="email"  type="email" class="form-control extra-small required email" placeholder="Enter Email">
-														</div>
-														
-													</div>
-													
-													<div class="row">
-														<div class="form-group mrg-b-0 col-12">
-															<label for="password">Password</label>
-														</div>
-														<div class="form-group col-lg-6">
-															<input id="password" type="password" class="form-control extra-small required" placeholder="Passwoed">
-														</div>
-														<div class="form-group col-lg-6">
-															<input id="confirm" type="password" class="form-control renter-block extra-small required" placeholder="Re type password">
-														</div>
-													</div>
-												</section>
-												<div class="form-wizard-circle">
-													<span class="wizard-circle">02</span>
-													<p class="wizard-text">General Information</p>
-													<i class="fa fa-angle-right wizard-icon" aria-hidden="true"></i>
-												</div>
-												<section>
-													<h3 class="display-off">one</h3>
-													<div class="form-group">
-														<label for="name">First Name</label>
-														<input id="name" type="text" class="form-control required" placeholder="First Name">
-													</div>
-													<div class="form-group">
-														<label for="surname">Last Name</label>
-														<input id="surname" type="text" class="form-control required" placeholder="Last Name">
-													</div>
-													<div class="form-group">
-														<label for="address">Address</label>
-														<input id="address" type="text" class="form-control" placeholder="Address">
-													</div>
-												</section>
-												<div class="form-wizard-circle">
-													<span class="wizard-circle">03</span>
-													<p class="wizard-text">Education</p>
-													<i class="fa fa-angle-right wizard-icon" aria-hidden="true"></i>
-												</div>
-												<section>
-													<h3 class="display-off">one</h3>
-													<div class="form-group">
-														<label for="primaryEducation">Primary</label>
-														<input id="primaryEducation" type="text" class="form-control required" placeholder="Primary Education">
-													</div>
-													<div class="form-group">
-														<label for="secondaryEducation">Secondary</label>
-														<input id="secondaryEducation" type="text" class="form-control required" placeholder="Secondary Education">
-													</div>
-													<div class="form-group">
-														<label for="graduation">Graduation</label>
-														<input id="graduation" type="text" class="form-control required" placeholder="Graduation">
-													</div>
-												</section>
-												<div class="form-wizard-circle">
-													<span class="wizard-circle">04</span>
-													<p class="wizard-text">Work Experiation</p>
-												</div>
-												<section>
-													<h3 class="display-off">one</h3>
-													<div class="form-group">
-														<label for="pastJob">Past Job</label>
-														<input id="pastJob" type="text" class="form-control required" placeholder="Past Job">
-													</div>
-													<div class="form-group">
-														<label for="currentJob">Current Job</label>
-														<input id="currentJob" type="text" class="form-control required" placeholder="Current Job">
-													</div>
-													<div class="form-group">
-														<label for="futurePlan">Future Plan</label>
-														<input id="futurePlan" type="text" class="form-control required" placeholder="Future Plan">
-													</div>
-												</section>
+								<div class="row clearfix">
+									<div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="datepicker form-control" placeholder="Please choose a date...">
+                                        </div>
+                                    </div>
+                                </div>
+									 <div class="col-md-4">
+	                                    <select class="form-control show-tick" data-live-search="true" title="Blood Group">
+	                                        <option>Hot Dog, Fries and a Soda</option>
+	                                        <option>Burger, Shake and a Smile</option>
+	                                        <option>Sugar, Spice and all things nice</option>
+	                                    </select>
+	                                </div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
 											</div>
-										</form>
+										</div>
 									</div>
-								</div><!--panel Body -->
-							</div><!--panel -->
-						</div><!-- widget-module -->
-					</div>
-				</div>
-				
-				<jsp:include page="/Common/footer.jsp"></jsp:include>
-	
-			</div>
-		</div>
-	</div>
-	<script src="/SMGMT/Config/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/tether.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/bootstrap.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/bootstrap-toggle.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/bootstrap-formhelpers.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/bootstrap-formhelpers-languages.js"></script>
-    <script src="/SMGMT/Config/assets/js/mdb.min.js"></script>
-    <script src="/SMGMT/Config/assets/js/bootstrap-slider.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/validator.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.inputmask.bundle.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery-tree-view.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.uploadfile.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.slimscroll.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.simpleWeather.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/tinymce/tinymce.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/fullcalendar/moment.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/fullcalendar/fullcalendar.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery-ui.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/lobipanel.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/classie.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.steps.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.validate.min.js"></script>
-	
-	<!-- Material-JS -->
-	<script src="/SMGMT/Config/assets/js/material.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/ripples.min.js"></script>
-	
-	<!-- Responsive Mobile Menu -->
-	<script src="/SMGMT/Config/assets/js/responsive-menu/jquery.accordion.js"></script>
-	
-	<!-- Counter-Up-JS -->
-	<script src="/SMGMT/Config/assets/js/jquery.waypoints.min.js"></script>
-	<script src="/SMGMT/Config/assets/js/jquery.counterup.min.js"></script>
-	
-	<!-- Emoji-JS -->
-	<script src="/SMGMT/Config/assets/js/emoji/config.js"></script>
-	<script src="/SMGMT/Config/assets/js/emoji/util.js"></script>
-	<script src="/SMGMT/Config/assets/js/emoji/jquery.emojiarea.js"></script>
-	<script src="/SMGMT/Config/assets/js/emoji/emoji-picker.js"></script>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="firstName" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">First Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="middleName" required>
+												<label class="form-label">Middle Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="email" class="form-control" name="email" required>
+                                        <label class="form-label">Email</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="gender" id="male" class="with-gap">
+                                    <label for="male">Male</label>
 
-    <script src="/SMGMT/Config/js/custom.js"></script>
+                                    <input type="radio" name="gender" id="female" class="with-gap">
+                                    <label for="female" class="m-l-20">Female</label>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
+                                        <label class="form-label">Description</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="password" class="form-control" name="password" required>
+                                        <label class="form-label">Password</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="checkbox" name="checkbox">
+                                    <label for="checkbox">I have read and accept the terms</label>
+                                </div>
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ADVANCED VALIDATION</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_advanced_validation" method="POST">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="minmaxlength" maxlength="10" minlength="3" required>
+                                        <label class="form-label">Min/Max Length</label>
+                                    </div>
+                                    <div class="help-info">Min. 3, Max. 10 characters</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="minmaxvalue" min="10" max="200" required>
+                                        <label class="form-label">Min/Max Value</label>
+                                    </div>
+                                    <div class="help-info">Min. Value: 10, Max. Value: 200</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="url" class="form-control" name="url" required>
+                                        <label class="form-label">Url</label>
+                                    </div>
+                                    <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="date" required>
+                                        <label class="form-label">Date</label>
+                                    </div>
+                                    <div class="help-info">YYYY-MM-DD format</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="number" required>
+                                        <label class="form-label">Number</label>
+                                    </div>
+                                    <div class="help-info">Numbers only</div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="creditcard" pattern="[0-9]{13,16}" required>
+                                        <label class="form-label">Credit Card</label>
+                                    </div>
+                                    <div class="help-info">Ex: 1234-5678-9012-3456</div>
+                                </div>
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Advanced Validation -->
+            <!-- Validation Stats -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                VALIDATION STATS
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation_stats">
+                                <div class="form-group form-float">
+                                    <div class="form-line focused warning">
+                                        <input type="text" class="form-control" name="warning" value="Warning" required>
+                                        <label class="form-label">Form Validation - Warning</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line focused error">
+                                        <input type="text" class="form-control" name="error" value="Error" required>
+                                        <label class="form-label">Form Validation - Error</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line focused success">
+                                        <input type="email" class="form-control" name="success" value="Success" required>
+                                        <label class="form-label">Form Validation - Success</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Validation Stats -->
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="/SMGMT/Config/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    
+    <!-- Bootstrap Colorpicker Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <!-- Dropzone Plugin Js -->
+    <script src="/SMGMT/Config/plugins/dropzone/dropzone.js"></script>
+
+    <!-- Input Mask Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="/SMGMT/Config/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="/SMGMT/Config/plugins/nouislider/nouislider.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="/SMGMT/Config/plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="/SMGMT/Config/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/SMGMT/Config/js/admin.js"></script>
+    <script src="/SMGMT/Config/js/pages/forms/form-validation.js"></script>
+
+    <!-- Demo Js -->
+    <script src="/SMGMT/Config/js/demo.js"></script>
 </body>
+
 </html>
