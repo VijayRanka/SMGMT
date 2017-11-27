@@ -18,6 +18,9 @@
     <!-- Animation Css -->
     <link href="/SMGMT/Config/plugins/animate-css/animate.css" rel="stylesheet" />
     
+    <!-- JQuery DataTable Css -->
+    <link href="/SMGMT/Config/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    
     <!-- Colorpicker Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
 
