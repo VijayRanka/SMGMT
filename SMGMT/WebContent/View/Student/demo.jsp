@@ -32,6 +32,37 @@
                         </div>
                         <div class="body">
                             <form id="form_validation" method="POST">
+	                            <h2 class="card-inside-title">
+	                            	School Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+			                                    <select class="form-control show-tick" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="middleName" required>
+												<label class="form-label">Middle Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<h2 class="card-inside-title">
+	                            	Personal Details
+	                            </h2>
 								<div class="row clearfix">
 									<div class="col-md-4">
 										<div class="form-group form-float">
@@ -58,12 +89,6 @@
 										</div>
 									</div>
 								</div>
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="surname" required>
-                                        <label class="form-label">Surname</label>
-                                    </div>
-                                </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="email" class="form-control" name="email" required>
@@ -231,6 +256,27 @@
 
     <!-- Slimscroll Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    
+    <!-- Bootstrap Colorpicker Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <!-- Dropzone Plugin Js -->
+    <script src="/SMGMT/Config/plugins/dropzone/dropzone.js"></script>
+
+    <!-- Input Mask Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="/SMGMT/Config/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="/SMGMT/Config/plugins/nouislider/nouislider.js"></script>
 
     <!-- Jquery Validation Plugin Css -->
     <script src="/SMGMT/Config/plugins/jquery-validation/jquery.validate.js"></script>
