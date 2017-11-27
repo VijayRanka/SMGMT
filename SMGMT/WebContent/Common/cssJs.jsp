@@ -18,6 +18,7 @@
     <!-- Animation Css -->
     <link href="/SMGMT/Config/plugins/animate-css/animate.css" rel="stylesheet" />
     
+    
     <!-- Colorpicker Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
 
@@ -32,6 +33,13 @@
 
     <!-- Bootstrap Tagsinput Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+    
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="/SMGMT/Config/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="/SMGMT/Config/plugins/waitme/waitMe.css" rel="stylesheet" />
+    
 
     <!-- Bootstrap Select Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
