@@ -5,6 +5,9 @@
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+	 <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="/SMGMT/Config/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -17,6 +20,8 @@
 
     <!-- Animation Css -->
     <link href="/SMGMT/Config/plugins/animate-css/animate.css" rel="stylesheet" />
+    
+     
     
     <!-- Colorpicker Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
