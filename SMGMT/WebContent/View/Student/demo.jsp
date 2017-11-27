@@ -100,6 +100,16 @@
 										
 										</div>
 									</div>
+									
+									<div class="col-md-6">
+										<div class="form-control-wrapper">
+											<div class="form-group label-floating is-empty">
+												<input type="text" id="date" class="form-control" data-dtp="dtp_PBeDf">
+												<label for="date" class="control-label">Date</label>
+											</div>
+										</div>
+									</div>
+					
 								</div>
 								<h2 class="card-inside-title">
 	                            	Personal Details
