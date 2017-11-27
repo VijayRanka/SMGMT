@@ -10,7 +10,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">School<b>MANAGEMENT</b></a>
+            <!-- <a href="javascript:void(0);">School<b>MANAGEMENT</b></a> -->
             <small>Designed by-Vertical Software</small>
         </div>
         <div class="card">
