@@ -146,8 +146,8 @@
 												</tr>
 											</thead>
 											<%
-												CasteDAO casteDAO=new CasteImpl();
-												request.setAttribute("display", casteDAO.getCategoryDetails());
+											//	CasteDAO casteDAO=new CasteImpl();
+											//	request.setAttribute("display", casteDAO.getCategoryDetails());
 											 	int i=0;
 											%>
 											
