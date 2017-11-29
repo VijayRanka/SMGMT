@@ -62,4 +62,15 @@
     <url-pattern>/UserLogin</url-pattern>
   </servlet-mapping>
 <!--  *************************************************************** END VIJAY****************************************************************** -->
+<!--  ***************************************************************  START SANDEEP****************************************************************** -->
+<servlet>
+    <servlet-name>School</servlet-name>
+    <servlet-class>com.servletStore.settings.school.controller.School</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>School</servlet-name>
+    <url-pattern>/School</url-pattern>
+  </servlet-mapping>
+<!--  *************************************************************** END SANDEEP****************************************************************** -->
+
 </web-app>
