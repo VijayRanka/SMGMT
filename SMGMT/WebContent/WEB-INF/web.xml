@@ -38,6 +38,20 @@
     <url-pattern>/Student.do</url-pattern>
   </servlet-mapping>
 <!-- *************************************************************   END HIMANSHU *************************************************************** -->
+
+<!--  ***************************************************************  MUKESH START ****************************************************************** -->
+
+<servlet>
+	<servlet-name>Section</servlet-name>
+	<servlet-class>com.servletStore.settings.section.controller.Section</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Section</servlet-name>
+	<url-pattern>/Section</url-pattern>
+</servlet-mapping>
+
+<!--  *************************************************************** MUKESH END ****************************************************************** -->
+
 <!--  ***************************************************************  VIJAY****************************************************************** -->
 <servlet>
     <servlet-name>UserLogin</servlet-name>

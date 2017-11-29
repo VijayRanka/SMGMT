@@ -6,15 +6,6 @@ public class SectionPojo
 	private int id;
 	private String name;
 	
-	
-	
-	public SectionPojo() {
-		
-	}
-	public SectionPojo(String name) {
-		
-		this.name = name;
-	}
 	public int getId() {
 		return id;
 	}
@@ -28,6 +19,7 @@ public class SectionPojo
 		this.name = name;
 	}
 	
+
 	
 	
 }

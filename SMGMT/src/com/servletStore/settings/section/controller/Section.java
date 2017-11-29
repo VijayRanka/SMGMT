@@ -16,26 +16,37 @@ import com.servletStore.settings.section.model.SectionImpl;
 import com.servletStore.settings.section.model.SectionPojo;
 
 
-@WebServlet("/Section")
 public class Section extends HttpServlet 
 {
-	SectionDAO sectiondao;
+	
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		sectiondao=new SectionImpl();
-		String section_name=request.getParameter("section_name");
-		SectionPojo section=new SectionPojo(section_name);
-		try {
-			sectiondao.insertSchoolSectionDetails(section);
-			System.out.println("inserted successfully");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		String section_name = request.getParameter("section_name");	
+		SectionPojo sectionPojo = new SectionPojo();
+		sectionPojo.setName(section_name);
+		
+		SectionDAO sectiondao = new SectionImpl();
+		
+		int insertStatus = sectiondao.addSection(sectionPojo);
+		if(insertStatus!=0){
+			System.out.println("insert susccess");
+		}
+		else{
+			System.out.println("insert fail");
 		}
 		
-		response.sendRedirect("View/Settings/sections/SectionNew.jsp");
+		
+		response.sendRedirect("View/Settings/Sections/Section.jsp");
 	}
 
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+		
 }
