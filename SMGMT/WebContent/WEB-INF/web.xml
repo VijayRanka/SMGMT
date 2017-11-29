@@ -62,4 +62,17 @@
     <url-pattern>/UserLogin</url-pattern>
   </servlet-mapping>
 <!--  *************************************************************** END VIJAY****************************************************************** -->
+
+<!--  *************************************************************** SARANG ****************************************************************** -->
+
+  <servlet>
+    <servlet-name>Caste</servlet-name>
+    <servlet-class>com.servletStore.settings.caste.controller.Caste</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Caste</servlet-name>
+    <url-pattern>/Caste</url-pattern>
+  </servlet-mapping>
+
+<!--  *************************************************************** SARANG END ****************************************************************** -->
 </web-app>
