@@ -44,8 +44,7 @@
     <link href="/SMGMT/Config/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <!-- Wait Me Css -->
-    <link href="/SMGMT/Config/plugins/waitme/waitMe.css" rel="stylesheet" />
-    
+    <link href="/SMGMT/Config/plugins/waitme/waitMe.css" rel="stylesheet" />    
 
     <!-- Bootstrap Select Css -->
     <link href="/SMGMT/Config/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
@@ -61,3 +60,4 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="/SMGMT/Config/css/themes/all-themes.css" rel="stylesheet" />
+ 
