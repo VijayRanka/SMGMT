@@ -6,7 +6,7 @@ import java.util.List;
 public interface SectionDAO 
 {
 
-	public void insertSchoolSectionDetails(SectionPojo section) throws SQLException;
-/*	public List<SectionPojo> getSectionDetails() throws SQLException;
-*/	
+	public int addSection(SectionPojo section);
+	public List<SectionPojo> getSectionDetails();
+
 }
