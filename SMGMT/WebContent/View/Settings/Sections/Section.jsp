@@ -83,17 +83,16 @@
                                     	SectionDAO sdao = new SectionImpl();
                                     	List l = sdao.getSectionDetails();
                                    
-                                    	SectionPojo pojo = (SectionPojo)l.get(0);
+                                    	
                                     	
                                     	Iterator itr = l.iterator();
                                     	while(itr.hasNext()){
-                                    	
-                                    	
+                                    		SectionPojo pojo = (SectionPojo)itr.next();
                                     %>
                                         <tr>
                                             <td>Tiger Nixon</td>
-                                            <td><%=((SectionPojo)itr.next()).getName() %></td>
-                                            <td>Edinburgh</td>
+                                            <td><%=pojo.getName() %></td>
+                                            <td><i class="material-icons">create</i>  <i class="material-icons">clear</i></td>
                                         </tr>
                                      <%
                                     	}
