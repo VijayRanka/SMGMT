@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="com.servletStore.settings.section.model.SectionImpl"%>
+<%@page import="com.servletStore.settings.section.model.SectionPojo"%>
+<%@page import="com.servletStore.settings.section.model.SectionDAO"%>
 <html>
 
 <head>
@@ -19,7 +24,7 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Basic Validation -->
-            <div class="row clearfix">
+            <div class="row clearfix">	
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                     	<ol class="breadcrumb breadcrumb-col-orange">
@@ -31,13 +36,13 @@
                             <h2>Section Details</h2>
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
+                            <form id="form_validation" action="/SMGMT/Section" method="POST">
 	                            
 								<div class="row clearfix">
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="firstName" title="Enter Section here" required onblur="this.value=$.trim(this.value)">
+												<input type="text" class="form-control" name="section_name" title="Enter Section here" onkeyup="this.value=this.value.toUpperCase()"  onblur="this.value=$.trim(this.value)" required>
 												<label class="form-label">Section Name</label>
 											</div>
 										</div>
@@ -64,37 +69,35 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" border="2">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Sr.No.</th>
+                                            <th>Section Name</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                    
+                                    <%
+                                    	SectionDAO sdao = new SectionImpl();
+                                    	List l = sdao.getSectionDetails();
+                                   
+                                    	SectionPojo pojo = (SectionPojo)l.get(0);
+                                    	
+                                    	Iterator itr = l.iterator();
+                                    	while(itr.hasNext()){
+                                    	
+                                    	
+                                    %>
                                         <tr>
                                             <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
+                                            <td><%=((SectionPojo)itr.next()).getName() %></td>
                                             <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
                                         </tr>
-                                       
+                                     <%
+                                    	}
+                                     %>  
                                     </tbody>
                                 </table>
                             </div>
