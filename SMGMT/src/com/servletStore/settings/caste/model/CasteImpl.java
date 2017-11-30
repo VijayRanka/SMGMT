@@ -106,4 +106,22 @@ public class CasteImpl implements CasteDAO {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void addCaste(CastePOJO castepojo) {
+		
+		String query="INSERT INTO caste(`religion_id`,`category_id`,`caste_name`) VALUES(?,?,?)";
+		try {
+			PreparedStatement ps=connection.prepareStatement(query);
+			ps.setInt(1, castepojo.getReligion_id());
+			ps.setInt(2, castepojo.getCategory_id());
+			ps.setString(3, castepojo.getCasteName());
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

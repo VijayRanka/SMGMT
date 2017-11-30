@@ -18,5 +18,8 @@ public interface CasteDAO {
 	public List<CastePOJO> getReligionDetails();
 	
 	public void deleteReligion(int religion_id);
+	
+	//Caste
+	public void addCaste(CastePOJO castepojo);
 
 }
