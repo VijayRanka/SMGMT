@@ -49,7 +49,14 @@
 	<servlet-name>Section</servlet-name>
 	<url-pattern>/Section</url-pattern>
 </servlet-mapping>
-
+<servlet>
+  <servlet-name>AddStandard</servlet-name>
+  <servlet-class>com.servletStore.settings.standard.controller.AddStandard</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>AddStandard</servlet-name>
+  <url-pattern>/AddStandard</url-pattern>
+</servlet-mapping>
 <!--  *************************************************************** MUKESH END ****************************************************************** -->
 
 <!--  ***************************************************************  VIJAY****************************************************************** -->
