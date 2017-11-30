@@ -49,7 +49,7 @@ public class SectionImpl implements SectionDAO
 			
 			while(rs.next())
 			{
-				System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
+				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
 				SectionPojo pojo=new SectionPojo();
 			    pojo.setId(rs.getInt("id"));
 			    pojo.setName(rs.getString("name"));
