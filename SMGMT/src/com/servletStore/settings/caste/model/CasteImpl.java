@@ -1,0 +1,109 @@
+package com.servletStore.settings.caste.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dbconnect.DBConnection;
+
+public class CasteImpl implements CasteDAO {
+	
+	DBConnection dbconnect=new DBConnection();
+	Connection connection=dbconnect.getConnection();
+	
+	PreparedStatement pstmt=null;
+	
+	@Override
+	public void addCasteCategory(CastePOJO castePojo) {
+		
+		try 
+		{
+			pstmt=connection.prepareStatement("INSERT INTO caste_category (category_name) VALUES (?)");
+			pstmt.setString(1, castePojo.getCasteCategoryName());
+			pstmt.executeUpdate();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
+
+	@Override
+	public List<CastePOJO> getCategoryDetails() {
+		
+		List<CastePOJO> list=new ArrayList<>();
+		try {
+			pstmt=connection.prepareStatement("SELECT id,category_name FROM caste_category");
+			ResultSet rs= pstmt.executeQuery();
+			while(rs.next()){
+				CastePOJO castePojo=new CastePOJO();
+				castePojo.setCategory_id(rs.getInt("id"));
+				castePojo.setCasteCategoryName(rs.getString("category_name"));
+				list.add(castePojo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public void deleteCategory(int category_id) {
+		
+		try {
+			pstmt=connection.prepareStatement("DELETE FROM caste_category WHERE id=?");
+			pstmt.setInt(1, category_id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void addReligion(CastePOJO castePojo) {
+		
+		try {
+			pstmt=connection.prepareStatement("INSERT INTO religion(religion_name) VALUES (?)");
+			pstmt.setString(1, castePojo.getReligionName());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<CastePOJO> getReligionDetails() {
+		
+		List<CastePOJO> list=new ArrayList<>();
+		
+		try {
+			pstmt=connection.prepareStatement("SELECT id,religion_name FROM religion");
+			ResultSet rs=pstmt.executeQuery();
+			while (rs.next()) {
+				CastePOJO castePojo=new CastePOJO();
+				castePojo.setReligion_id(rs.getInt("id"));
+				castePojo.setReligionName(rs.getString("religion_name"));
+				list.add(castePojo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public void deleteReligion(int religion_id) {
+		
+		try {
+			pstmt=connection.prepareStatement("DELETE FROM religion WHERE id=?");
+			pstmt.setInt(1, religion_id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

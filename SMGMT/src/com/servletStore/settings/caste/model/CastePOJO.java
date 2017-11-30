@@ -1,11 +1,11 @@
-package com.servletStore.caste.model;
+package com.servletStore.settings.caste.model;
 
 public class CastePOJO {
 
 	private int category_id;
 	private String casteCategoryName;
+	private int religion_id;
 	private String religionName;
-	private String casteName;
 	
 	public int getCategory_id() {
 		return category_id;
@@ -23,19 +23,19 @@ public class CastePOJO {
 		this.casteCategoryName = casteCategoryName;
 	}
 	
+	public int getReligion_id() {
+		return religion_id;
+	}
+
+	public void setReligion_id(int religion_id) {
+		this.religion_id = religion_id;
+	}
+	
 	public String getReligionName() {
 		return religionName;
 	}
 	
 	public void setReligionName(String religionName) {
 		this.religionName = religionName;
-	}
-	
-	public String getCasteName() {
-		return casteName;
-	}
-
-	public void setCasteName(String casteName) {
-		this.casteName = casteName;
 	}
 }
