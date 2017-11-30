@@ -76,21 +76,16 @@ public class Caste extends HttpServlet {
 			
 			int religion_id=Integer.parseInt(request.getParameter("religion"));
 			int category_id=Integer.parseInt(request.getParameter("category"));
-			String casteName=request.getParameter("casteName");
+			String casteName=request.getParameter("casteName").toUpperCase().trim();
 			
+			castePojo=new CastePOJO(religion_id,category_id,casteName);
 			
-			System.out.println(religion_id+" "+category_id+" " +casteName);
-			
-			
-			
-//			castePojo=new CastePOJO(religion_id,category_id,caste_name);
-//			
-//			castePojo.setReligion_id(religion_id);
-//			castePojo.setCategory_id(category_id);
-//			castePojo.setCasteName(caste_name);
-//			casteDAO.insertCasteDetails(castePojo);		
-//			System.out.println("Inserted successfully");
-//			response.sendRedirect("View/Settings/caste/CasteManagment.jsp");
+			castePojo.setReligion_id(religion_id);
+			castePojo.setCategory_id(category_id);
+			castePojo.setCasteName(casteName);
+			casteDAO.addCaste(castePojo);		
+
+			response.sendRedirect("View/Settings/caste/addCaste.jsp");
 		}
 		
 	}

@@ -41,11 +41,11 @@
                             <form id="form_validation" action="/SMGMT/Caste" method="POST">
 	                            
 	                            
-   	            		      	<div class="col-md-4">
-                                    <p>
-                                        <b>Category</b>
-                                    </p>
-                                    <select class="form-control show-tick" name="category" id="category">
+   	            		    <div class="col-md-4">
+   	            		      <div class="form-group form-float">
+								<div class="form-line">
+   	            		      	
+                                    <select class="form-control show-tick" name="category" id="category" title="Select Category" data-live-search="true" required="required">
                                     
                                    		<%
 			 								CasteDAO castedao=new CasteImpl();
@@ -59,13 +59,13 @@
                                     </select>
 
                                 </div>
+	                          </div>
+	                       </div>     
 	                            
-	                            
-	            		      	<div class="col-md-4">
-                                    <p>
-                                        <b>Religion</b>
-                                    </p>
-                                    <select class="form-control show-tick"  name="religion" id="religion">
+	            		<div class="col-md-4 col-lg-4">
+							<div class="form-group form-float">
+								<div class="form-line">
+                                    <select class="form-control show-tick"  name="religion" id="religion" title="Select Religion" data-live-search="true" required="required">
                                     
                                    		<%
 			 								request.setAttribute("list",castedao.getReligionDetails());
@@ -78,37 +78,27 @@
                                     </select>
 
                                 </div>
+                            </div>
+                        </div>        
 	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-								<div class="row clearfix">
-									<div class="col-md-4">
-										<div class="form-group form-float">
-											<div class="form-line">
-												<input type="text" class="form-control" id="casteName" name="casteName" required>
-												<label class="form-label">Caste Name</label>
-											</div>
-										</div>
+
+						<div class="row clearfix">
+							<div class="col-md-4">
+								<div class="form-group form-float">
+									<div class="form-line">
+										<input type="text" class="form-control" id="casteName" name="casteName" required>
+										<label class="form-label">Caste Name</label>
 									</div>
 								</div>
-                                
-                                <button type="submit" name="caste_btn" id="caste_btn" value="caste_btn" class="btn btn-primary waves-effect">Add Caste</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+							</div>
+						</div>
+                              
+                              <button type="submit" name="caste_btn" id="caste_btn" value="caste_btn" class="btn btn-primary waves-effect">Add Caste</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
             
             <!-- #END# Basic Validation -->
 
