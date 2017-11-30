@@ -81,20 +81,22 @@
                                     
                                     <%
                                     	SectionDAO sdao = new SectionImpl();
-                                    	List l = sdao.getSectionDetails();
+                                    	List<SectionPojo> l = sdao.getSectionDetails();
                                    
-                                    	
-                                    	
+										int count=1;
                                     	Iterator itr = l.iterator();
                                     	while(itr.hasNext()){
                                     		SectionPojo pojo = (SectionPojo)itr.next();
+                                    		int id = pojo.getId();
                                     %>
                                         <tr>
-                                            <td>Tiger Nixon</td>
+                                            <td><%=count %></td>
                                             <td><%=pojo.getName() %></td>
-                                            <td><i class="material-icons">create</i>  <i class="material-icons">clear</i></td>
+                                            <td><a href="#updateSection" data-toggle="modal"  onclick="searchName(<%=id%>)"><i class="material-icons">create</i></a> 
+                                            	 <i class="material-icons">clear</i></td>
                                         </tr>
                                      <%
+                                     	count++;
                                     	}
                                      %>  
                                     </tbody>
