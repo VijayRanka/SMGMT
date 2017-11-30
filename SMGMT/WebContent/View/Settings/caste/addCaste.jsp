@@ -25,8 +25,7 @@
         <div class="container-fluid">
             <!-- Basic Validation -->
             <div class="row clearfix">	
-            	<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                     	<ol class="breadcrumb breadcrumb-col-orange">
 			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
@@ -34,150 +33,86 @@
 			              <li class="active"><i class="material-icons">archive</i> Data</li>
 			            </ol>
                         <div class="header">
-                            <h2>Category</h2>
+                            <h2>Caste</h2>
                         </div>
                         
 	
                         <div class="body">
                             <form id="form_validation" action="/SMGMT/Caste" method="POST">
 	                            
-								<div class="row clearfix">
-									<div class="col-md-6">
-										<div class="form-group form-float">
-											<div class="form-line">
-												<input type="text" class="form-control" id="casteCategoryName" name="casteCategoryName" required>
-												<label class="form-label">Category Name</label>
-											</div>
-										</div>
-									</div>
-								</div>
-                                
-                                <button type="submit" name="category_btn" id="category_btn" value="category_btn" class="btn btn-primary waves-effect">Add Category</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-          
-            <!-- #END# Basic Validation -->
-            
-            <!-- Basic Validation -->
-           
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
-                    <div class="card">
-                    	<ol class="breadcrumb breadcrumb-col-orange">
-			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
-			              <li><a href="javascript:void(0);"><i class="material-icons">library_books</i> Library</a></li>
-			              <li class="active"><i class="material-icons">archive</i> Data</li>
-			            </ol>
-                        <div class="header">
-                            <h2>Religion</h2>
-                        </div>
-                        
-	
-                        <div class="body">
-                            <form id="form_advanced_validation" action="/SMGMT/Caste" method="POST">
+	                            
+   	            		      	<div class="col-md-4">
+                                    <p>
+                                        <b>Category</b>
+                                    </p>
+                                    <select class="form-control show-tick" name="category" id="category">
+                                    
+                                   		<%
+			 								CasteDAO castedao=new CasteImpl();
+			 								request.setAttribute("list",castedao.getCategoryDetails());
+										%>
+										<c:forEach items="${list}" var="u">  
+										
+										 <option value="${u.getCategory_id()}">${u.getCasteCategoryName()}</option>
+										
+										</c:forEach>
+                                    </select>
+
+                                </div>
+	                            
+	                            
+	            		      	<div class="col-md-4">
+                                    <p>
+                                        <b>Religion</b>
+                                    </p>
+                                    <select class="form-control show-tick"  name="religion" id="religion">
+                                    
+                                   		<%
+			 								request.setAttribute("list",castedao.getReligionDetails());
+										%>
+										<c:forEach items="${list}" var="u">  
+										
+										 <option value="${u.getReligion_id()}">${u.getReligionName()}</option>
+										
+										</c:forEach>
+                                    </select>
+
+                                </div>
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
 	                            
 								<div class="row clearfix">
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" id="religionName" name="religionName" required>
-												<label class="form-label">Religion Name</label>
+												<input type="text" class="form-control" id="casteName" name="casteName" required>
+												<label class="form-label">Caste Name</label>
 											</div>
 										</div>
 									</div>
 								</div>
                                 
-                                <button type="submit" name="religion_btn" id="religion_btn" VALUE="religion_btn" class="btn btn-primary waves-effect">Add Religion</button>
+                                <button type="submit" name="caste_btn" id="caste_btn" value="caste_btn" class="btn btn-primary waves-effect">Add Caste</button>
                             </form>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
             
             <!-- #END# Basic Validation -->
 
 
- <!--  Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                CATEGORY LIST
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Sr.No.</th>
-                                            <th>Category</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-										<%
-											CasteDAO casteDAO=new CasteImpl();
-											request.setAttribute("display_CasteCategory", casteDAO.getCategoryDetails());
-										 	int i=0;
-										%>
-                                    <tbody>
-										<c:forEach items="${display_CasteCategory}" var="d">
-											<tr>
-												<td><%=(++i) %></td>
-												<td><c:out value="${d.casteCategoryName}"></c:out></td>
-												<td><a href="/SMGMT/Caste?category_id=${d.getCategory_id()}">Delete</a></td>
-											</tr>	
-										</c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                RELIGION LIST
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Sr.No.</th>
-                                            <th>Religion</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-										<%
-											request.setAttribute("display_Religion", casteDAO.getReligionDetails());
-										 	i=0;
-										%>	
-                                    <tbody>
-										<c:forEach items="${display_Religion}" var="d">
-											<tr>
-												<td><%=(++i) %></td>
-												<td><c:out value="${d.religionName}"></c:out></td>
-												<td><a href="/SMGMT/Caste?religion_id=${d.getReligion_id()}">Delete</a></td>
-											</tr>	
-										</c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <!-- #END#  Table -->
 
        
         
@@ -230,6 +165,11 @@
 
 <!--     Waves Effect Plugin Js -->
     <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+    
+    <script src="/SMGMT/Config/js/pages/ui/tooltips-popovers.js"></script>
+    
+    
     
  <!-- Jquery DataTable Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-datatable/jquery.dataTables.js"></script>
