@@ -21,22 +21,31 @@ public class AddStandard extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String std_name = request.getParameter("standard_name");
 		
-		StandardPOJO stdPojo = new StandardPOJO();
-		stdPojo.setName(std_name);
+		if(request.getParameter("standard_name")!=null){
+			String std_name = request.getParameter("standard_name");
 		
-		StandardDAO stdDao = new StandardImpl();
-		int i = stdDao.addStandard(stdPojo);
-		
-		if(i>0){
-			System.out.println("insert success");
+			StandardPOJO stdPojo = new StandardPOJO();
+			stdPojo.setName(std_name);
+			
+			StandardDAO stdDao = new StandardImpl();
+			int i = stdDao.addStandard(stdPojo);
+			
+			if(i>0){
+				System.out.println("insert success");
+			}
+			else{
+				System.out.println("insert fail");
+			}
+			
+			response.sendRedirect("View/Settings/standard/addStandard.jsp");
 		}
-		else{
-			System.out.println("insert fail");
+		
+		
+		if(request.getParameter("schoolId")!=null){
+			System.out.println();
 		}
 		
-		response.sendRedirect("View/Settings/standard/addStandard.jsp");
 	}
 
 }
