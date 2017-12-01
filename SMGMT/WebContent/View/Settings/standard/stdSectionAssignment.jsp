@@ -47,7 +47,7 @@
 									<div class="col-md-6 col-lg-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-			                                    <select class="form-control show-tick" name="schoolId" id="schoolId" title="Select School" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="schoolId" onchange="getSections()" id="schoolId" title="Select School" data-live-search="true" required="required">
 			                                        
 			                                        <%
 				                                    	StandardDAO sdao3 = new StandardImpl();
@@ -75,7 +75,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-			                                    <select class="form-control show-tick" name="sectionId" onchange="getSections()" title="Select Section" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="sectionId"  title="Select Section" data-live-search="true" required="required">
 			                                        
 			                                        <%
 				                                    	SectionDAO sdao2 = new SectionImpl();
@@ -194,20 +194,21 @@
 function getSections() {
 	
 	var sid = document.getElementById("schoolId").value;	
-	alert(sid);
+alert();
 	var xhttp;
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			var demoStr = this.responseText.split(",");
-			
+			var demoStr = this.responseText;
+			alert(demoStr);
 		}
 	};
 	
-	xhttp.open("POST", "/SAMERP/AddStandard?schoolId="+sid, true);
+	xhttp.open("POST", "/SMGMT/AddStandard?schoolId="+sid, true);
 	xhttp.send();
 	
-}	
+	
+}
 
 
 </script>

@@ -13,7 +13,7 @@ public class DBConnection {
 	//String url = "jdbc:mysql://192.168.0.51:3306/";
 	String dbName = "smgmt";
 	String userName = "root";
-	String password = "";
+	String password = "root";
 	Connection con;
 	int rowsInserted=0;
 	ResultSet rs;
