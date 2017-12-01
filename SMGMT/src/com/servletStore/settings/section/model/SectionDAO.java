@@ -8,5 +8,6 @@ public interface SectionDAO
 
 	public int addSection(SectionPojo section);
 	public List<SectionPojo> getSectionDetails();
+	List<SectionPojo> getSectionDetailsBySchoolId(String sid);
 
 }
