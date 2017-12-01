@@ -119,9 +119,34 @@ public class CasteImpl implements CasteDAO {
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
+
+	@Override
+	public List<CastePOJO> getCasteDetails() {
+		
+		List<CastePOJO> list=new ArrayList<CastePOJO>();
+		
+		String query3="SELECT caste.id, caste_category.category_name, religion.religion_name, caste.caste_name FROM caste_category, religion, caste WHERE caste_category.id=caste.category_id AND religion.id=caste.religion_id";
+		try {
+			PreparedStatement ps=connection.prepareStatement(query3);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+
+				CastePOJO pojo=new CastePOJO();
+				pojo.setCaste_id(rs.getInt("id"));
+				pojo.setReligionName(rs.getString("religion_name"));
+				pojo.setCasteCategoryName(rs.getString("category_name"));
+				pojo.setCasteName(rs.getString("caste_name"));
+				list.add(pojo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }
