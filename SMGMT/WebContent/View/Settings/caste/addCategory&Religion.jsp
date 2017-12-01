@@ -129,8 +129,15 @@
 											<tr>
 												<td><%=(++i) %></td>
 												<td><c:out value="${d.casteCategoryName}"></c:out></td>
-												<td><a href="/SMGMT/Caste?category_id=${d.getCategory_id()}">Delete</a></td>
-											</tr>	
+												<td>
+													<a href="/SMGMT/Caste?category_id=${d.getCategory_id()}" data-toggle="tooltip" data-placement="bottom" title="Delete">
+														<i class="material-icons">clear</i>
+													</a>
+													<a href="#" data-toggle="tooltip" data-placement="bottom" title="Update">
+														<i class="material-icons">create</i>
+													</a>
+												</td>
+											</tr>
 										</c:forEach>
                                     </tbody>
                                 </table>
@@ -166,7 +173,14 @@
 											<tr>
 												<td><%=(++i) %></td>
 												<td><c:out value="${d.religionName}"></c:out></td>
-												<td><a href="/SMGMT/Caste?religion_id=${d.getReligion_id()}">Delete</a></td>
+												<td>
+													<a href="/SMGMT/Caste?religion_id=${d.getReligion_id()}" data-toggle="tooltip" data-placement="bottom" title="Delete">
+														<i class="material-icons">clear</i>
+													</a>
+													<a href="#" data-toggle="tooltip" data-placement="bottom" title="Update">
+														<i class="material-icons">create</i>
+													</a>													
+												</td>
 											</tr>	
 										</c:forEach>
                                     </tbody>
@@ -230,6 +244,11 @@
 
 <!--     Waves Effect Plugin Js -->
     <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+    
+    <script src="/SMGMT/Config/js/pages/ui/tooltips-popovers.js"></script>
+    
+    
     
  <!-- Jquery DataTable Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-datatable/jquery.dataTables.js"></script>

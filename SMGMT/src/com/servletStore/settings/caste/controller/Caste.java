@@ -34,8 +34,7 @@ public class Caste extends HttpServlet {
 			castePojo.setCasteCategoryName(casteCategoryName);
 			casteDAO.addCasteCategory(castePojo);
 
-			RequestDispatcher rd = request.getRequestDispatcher("View/Settings/caste/casteMgmt.jsp");
-	        rd.forward(request, response);
+			response.sendRedirect("View/Settings/caste/addCategory&Religion.jsp");
 		}
 		
 		//delete-CasteCategory
@@ -45,8 +44,7 @@ public class Caste extends HttpServlet {
 	
 			casteDAO.deleteCategory(category_id);
 	
-			RequestDispatcher rd = request.getRequestDispatcher("View/Settings/caste/casteMgmt.jsp");
-	        rd.forward(request, response);
+			response.sendRedirect("View/Settings/caste/addCategory&Religion.jsp");
 		}
 		
 		//update-CasteCategory		
@@ -60,8 +58,7 @@ public class Caste extends HttpServlet {
 			castePojo.setReligionName(religionName);
 			casteDAO.addReligion(castePojo);
 
-			RequestDispatcher rd = request.getRequestDispatcher("View/Settings/caste/casteMgmt.jsp");
-	        rd.forward(request, response);
+			response.sendRedirect("View/Settings/caste/addCategory&Religion.jsp");
 		}
 		
 		//add-Religion
@@ -71,8 +68,25 @@ public class Caste extends HttpServlet {
 	
 			casteDAO.deleteReligion(religion_id);
 	
-			RequestDispatcher rd = request.getRequestDispatcher("View/Settings/caste/casteMgmt.jsp");
-	        rd.forward(request, response);
+			response.sendRedirect("View/Settings/caste/addCategory&Religion.jsp");
 		}
+		
+		//add Caste
+		if(request.getParameter("caste_btn")!=null){
+			
+			int religion_id=Integer.parseInt(request.getParameter("religion"));
+			int category_id=Integer.parseInt(request.getParameter("category"));
+			String casteName=request.getParameter("casteName").toUpperCase().trim();
+			
+			castePojo=new CastePOJO(religion_id,category_id,casteName);
+			
+			castePojo.setReligion_id(religion_id);
+			castePojo.setCategory_id(category_id);
+			castePojo.setCasteName(casteName);
+			casteDAO.addCaste(castePojo);		
+
+			response.sendRedirect("View/Settings/caste/addCaste.jsp");
+		}
+		
 	}
 }
