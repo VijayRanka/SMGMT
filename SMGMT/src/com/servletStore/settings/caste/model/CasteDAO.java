@@ -21,5 +21,7 @@ public interface CasteDAO {
 	
 	//Caste
 	public void addCaste(CastePOJO castepojo);
+	
+	public List<CastePOJO> getCasteDetails();
 
 }
