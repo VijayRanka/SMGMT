@@ -31,32 +31,48 @@
                             <h2>Student Details</h2>
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
+                        	<div class="row clearfix">
+				                <div class="col-lg-4 col-md-3 col-sm-4 col-xs-4">
+				                    <div class="card">
+				                        <div class="body">
+				                            <div action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+				                                <div class="dz-message">
+				                                    <div class="drag-icon-cph">
+				                                        <i class="material-icons">touch_app</i>
+				                                    </div>
+				                                    <h3>Profile Picture</h3>
+				                                    <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>
+				                                </div>
+				                                <div class="fallback">
+				                                    <input name="file" type="file" multiple />
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+					          </div>
+                            <form id="form_validation" action="/SMGMT/Student.do" method="post">
+                            	<!-- 	************************************** OFFICIAL DETAILS ************************************* -->
 	                            <h2 class="card-inside-title">
-	                            	School Details
+	                            	OFFICIAL DETAILS
 	                            </h2>
+	                            <hr>
 								<div class="row clearfix">
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<p>
-			                                        <b>Select School</b>
-			                                    </p>
-			                                    <select class="form-control show-tick" name="schoolId" multiple title="Select School" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="academicId" title="Select Academic Year" data-live-search="true" required="required">
 			                                        <option></option>
-			                                        <option>Burger, Shake and a Smile</option>
-			                                        <option>Sugar, Spice and all things nice</option>
+			                                        <option>2016-2017</option>
+			                                        <option>2017-2018</option>
 			                                    </select>
 			                                 </div>
 			                              </div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<p>
-			                                        <b>Select Section</b>
-			                                    </p>
-			                                    <select class="form-control show-tick" name="sectionId" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="sectionId" title="Select Section" data-live-search="true" required="required">
 			                                        <option></option>
 			                                        <option>Burger, Shake and a Smile</option>
 			                                        <option>Sugar, Spice and all things nice</option>
@@ -64,13 +80,21 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<p>
-			                                        <b>Select Class</b>
-			                                    </p>
-			                                    <select class="form-control show-tick" name="classId" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="stdId" title="Select Standard" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" name="divId" title="Select Division" data-live-search="true" required="required">
 			                                        <option></option>
 			                                        <option>Burger, Shake and a Smile</option>
 			                                        <option>Sugar, Spice and all things nice</option>
@@ -83,27 +107,107 @@
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="prnNo" required onblur="this.value=$.trim(this.value)">
-												<label class="form-label">PRN Number</label>
+												<input type="text" class="form-control" name="bookNo" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Book Number</label>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="datepicker form-control" placeholder="Please choose a date..." required="required">
+												<input type="text" class="form-control" name="grNo" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">General Register Number</label>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group form-float">
-										
+											<div class="form-line">
+												<input type="text" class="datepicker form-control" required="required">
+												<label class="form-label">Admission Date</label>
+											</div>
 										</div>
 									</div>
 								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+														<input type="checkbox" id="md_checkbox_9" class="chk-col-teal" />
+                                						<label for="md_checkbox_9">Class Allocated</label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Previous School Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="divId" title="Select Standard" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="divId" title="Select Division" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="divId" title="Select Medium" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+														<input type="checkbox" id="semiEnglish" class="chk-col-teal" />
+                                						<label for="semiEnglish">Semi English </label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	************************************** End OFFICIAL DETAILS ************************************* -->
+								<!-- 	************************************** Personal Details ************************************* -->
 								<h2 class="card-inside-title">
 	                            	Personal Details
 	                            </h2>
+	                            <hr>
 								<div class="row clearfix">
 									<div class="col-md-4">
 										<div class="form-group form-float">
@@ -130,35 +234,417 @@
 										</div>
 									</div>
 								</div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email</label>
-                                    </div>
+								<div class="row clearfix">
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="demo-masked-input">
+												<div class="input-group">
+		                                            <span class="input-group-addon">
+		                                                <i class="material-icons">date_range</i>
+		                                            </span>
+		                                            <div class="form-line">
+		                                                <input type="text" name="dob" id="dob" onblur="getAge()" class="form-control date" title="Enter Date of Birth" placeholder="Date Of Birth(Ex: 04/06/1995)" required>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="age" id="age" required>
+												<label class="form-label">Age</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="birthPlace" id="age" required>
+												<label class="form-label">Birth Place</label>
+											</div>
+										</div>
+									</div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="radio" name="gender" id="male" class="with-gap">
-                                    <label for="male">Male</label>
-
-                                    <input type="radio" name="gender" id="female" class="with-gap">
-                                    <label for="female" class="m-l-20">Female</label>
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="radio" name="gender" id="male" class="with-gap"  checked>
+			                                    <label for="male">Male</label>
+			
+			                                    <input type="radio" name="gender" id="female" class="with-gap">
+			                                    <label for="female" class="m-l-20">Female</label>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Blood Group">
+													<option></option>
+			                                        <option>A+</option>
+													<option>O+</option>
+													<option>B+</option>
+													<option>AB+</option>
+													<option>A-</option>
+													<option>O-</option>
+													<option>B-</option>
+													<option>AB-</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="heigth" required>
+												<label class="form-label">Height</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                   <input type="text" class="form-control" name="weight" required>
+												<label class="form-label">Weight</label>
+											</div>
+										</div>
+									</div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">Description</label>
-                                    </div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="aadharNumber" title="Enter Aadhar Number" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Aadhar Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="nationality" required>
+												<label class="form-label"> Nationality</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Mother Tongue">
+													<option value="Marathi">Marathi</option>
+													<option value="Gujarati">Gujarati</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Religious ">
+													<option></option>
+													<option value="Hindu">Hindu</option>
+													<option value="Musalim">Musalim</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Caste">
+													<option></option>
+													<option value="Patel">Patel</option>
+													<option value="Marathi">Marathi</option>
+												</select> 
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Caste Category ">
+													<option></option>
+													<option value="Open">Open</option>
+													<option value="OBC">OBC</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												 <div class="switch">
+<!-- 				                                    <label>Minority<input type="checkbox" checked onclick="alert(this.checked)"><span class="lever"></span></label> -->
+														<input type="checkbox" id="md_checkbox_9" class="chk-col-teal" />
+                                						<label for="md_checkbox_9">Minority</label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+				                                    <label>Physical	Handicap<input type="checkbox" checked onclick="alert(this.checked)"><span class="lever"></span></label>	
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" title="Physical Handicap Type">
+													<option></option>
+			                                        <option>Physical</option>
+			                                        <option>Handicap</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">Password</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
+                                <!-- 	**************************************End Personal Details ************************************* -->
+                                <!-- 	************************************** FATHER'S Details ************************************* -->
+                                <h2 class="card-inside-title">
+	                            	FATHER'S Details
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Name </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="mobileNumber" required>
+												<label class="form-label">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="email" required>
+												<label class="form-label">Email Address</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherDesignation" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Occupation </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherIncome" required>
+												<label class="form-label">Income</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												 <input type="text" class="form-control" name="aaadharNumber" required>
+												<label class="form-label">Aaadhar number</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End FATHER'S Details ************************************* -->
+								<!-- 	************************************** MOTHER'S Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	MOTHER'S Details
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Name </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="mobileNumber" required>
+												<label class="form-label">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="email" required>
+												<label class="form-label">Email Address</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherDesignation" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Occupation </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherIncome" required>
+												<label class="form-label"> Income</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												 <input type="text" class="form-control" name="aaadharNumber" required>
+												<label class="form-label">Aaadhar number</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	************************************** End MOTHER'S Details ************************************* -->
+								<!-- 	************************************** Contact Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Contact Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="pinCode" id="pinCode" title="Enter Pincode" required onblur="this.value=$.trim(this.value); loadDoc()">
+												<label class="form-label">Pin Code</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="taluk" id="taluk" title="Enter Taluk" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Taluk</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="district" id="district" required>
+												<label class="form-label">District</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="state" id="state" required>
+												<label class="form-label"> State</label>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+<!-- 								<div class="row clearfix"> -->
+										<div class="form-group form-float">
+		                                    <div class="form-line">
+		                                        <textarea name="addressOne" id="addressOne" cols="30" rows="3" class="form-control no-resize" required></textarea>
+		                                        <label class="form-label">Address</label>
+		                                    </div>
+		                                </div>
+<!-- 								</div> -->
+								<!-- 	************************************** End Contact Details ************************************* -->
+								<!-- 	************************************** Bank Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Bank Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Bank Name ">
+													<option></option>
+													<option value="SBI">SBI</option>
+													<option value="BOB">BOB</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select IFSC code">
+													<option></option>
+													<option value="SBI0006">SBI0006</option>
+													<option value="BOB0143">BOB0143</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="accountNo" required>
+												<label class="form-label"> Account No</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End Bank Details ************************************* -->
+								<!-- 	************************************** Transportation Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Transportation Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" title="Select Vehicle Name">
+													<option></option>
+													<option value="SBI">SBI</option>
+													<option value="BOB">BOB</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="vehicleRate">
+												<label class="form-label">Transportation Rate</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="vehicleDiscount">
+												<label class="form-label">Transportation Discount</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End Transportation Details ************************************* -->
+								<!-- 	************************************** Submit ************************************* -->
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
@@ -166,123 +652,6 @@
                 </div>
             </div>
             <!-- #END# Basic Validation -->
-            <!-- Advanced Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>ADVANCED VALIDATION</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_advanced_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxlength" maxlength="10" minlength="3" required>
-                                        <label class="form-label">Min/Max Length</label>
-                                    </div>
-                                    <div class="help-info">Min. 3, Max. 10 characters</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxvalue" min="10" max="200" required>
-                                        <label class="form-label">Min/Max Value</label>
-                                    </div>
-                                    <div class="help-info">Min. Value: 10, Max. Value: 200</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="url" class="form-control" name="url" required>
-                                        <label class="form-label">Url</label>
-                                    </div>
-                                    <div class="help-info">Starts with http://, https://, ftp:// etc</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="date" required>
-                                        <label class="form-label">Date</label>
-                                    </div>
-                                    <div class="help-info">YYYY-MM-DD format</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="number" required>
-                                        <label class="form-label">Number</label>
-                                    </div>
-                                    <div class="help-info">Numbers only</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="creditcard" pattern="[0-9]{13,16}" required>
-                                        <label class="form-label">Credit Card</label>
-                                    </div>
-                                    <div class="help-info">Ex: 1234-5678-9012-3456</div>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Advanced Validation -->
-            <!-- Validation Stats -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                VALIDATION STATS
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_validation_stats">
-                                <div class="form-group form-float">
-                                    <div class="form-line focused warning">
-                                        <input type="text" class="form-control" name="warning" value="Warning" required>
-                                        <label class="form-label">Form Validation - Warning</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused error">
-                                        <input type="text" class="form-control" name="error" value="Error" required>
-                                        <label class="form-label">Form Validation - Error</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused success">
-                                        <input type="email" class="form-control" name="success" value="Success" required>
-                                        <label class="form-label">Form Validation - Success</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Validation Stats -->
         </div>
     </section>
 
@@ -344,8 +713,70 @@
     <script src="/SMGMT/Config/js/admin.js"></script>
     <script src="/SMGMT/Config/js/pages/forms/form-validation.js"></script>
 	<script src="/SMGMT/Config/js/pages/forms/basic-form-elements.js"></script>
+	<script src="/SMGMT/Config/js/pages/forms/advanced-form-elements.js"></script>
 <!--     Demo Js -->
     <script src="/SMGMT/Config/js/demo.js"></script>
+<script type="text/javascript">
+//====================================== PINCODE SEARCH =====================================
+	function loadDoc() {
+		var pinNew="";
+		$.getJSON("/SMGMT/Config/json/PincodeJson.json", function(json) {
+			pinNew=json;
+			myFunction(pinNew);
+		});
+	 
+	}
+	function myFunction(x) {
+		var pinNo=document.getElementById("pinCode").value
+		document.getElementById("taluk").value="";
+	    document.getElementById("district").value="";
+	    document.getElementById("state").value="";
+	  var i;
+	  for (i = 0; i <x.length; i++) {
+		var pin=x[i].pincode;
+	    if(pin == pinNo){
+	      //document.getElementById("pinNo").value=x[i].pincode;
+	      document.getElementById("taluk").value=x[i].taluk;
+	      document.getElementById("taluk").focus();
+	      document.getElementById("district").value=x[i].districtname;
+	      document.getElementById("district").focus();
+	      document.getElementById("state").value=x[i].statename;
+	      document.getElementById("state").focus();
+	      document.getElementById("addressOne").focus();
+		  break;
+	     }
+	  }
+	}
+//====================================== END PINCODE SEARCH =====================================
+//====================================== AGE Calculator  =====================================
+	function getAge() {
+		var inputDate = document.getElementById("dob").value;
+		var newDate=inputDate.split("/");
+		
+
+	    var byr = newDate[2];
+	    var bmo = newDate[1];
+	    bmo=bmo-1;
+	    var bday = newDate[0];
+	    
+	    var byr;
+	    var age;
+	    var now = new Date();
+	    tday=now.getDate();
+	    tmo=(now.getMonth());
+	    tyr=(now.getFullYear());
+	    
+	    if((tmo > bmo)||(tmo==bmo & tday>=bday)){
+	    	age=byr;
+	    }
+	    else{
+	    	age=parseInt(byr)+parseInt(1);
+	    }
+	    document.getElementById("age").value=(tyr-age);
+	    
+}
+//======================================End  AGE Calculator  =====================================
+</script>
 </body>
 
 </html>
