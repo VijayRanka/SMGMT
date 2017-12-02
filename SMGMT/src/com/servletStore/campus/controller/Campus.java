@@ -20,7 +20,7 @@ public class Campus extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		PrintWriter out=null;
+		/*PrintWriter out=null;
 		String submit=request.getParameter("submit");
 		if(submit!=null)
 		{
@@ -55,10 +55,35 @@ public class Campus extends HttpServlet {
 			}
 			RequestDispatcher rd=request.getRequestDispatcher("View/trestee/Campus.jsp");
 			rd.forward(request, response);
-		}
+		}*/
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		//doGet(request, response);
+		
+		PrintWriter out = response.getWriter();
+		//out.println("working");
+		response.setContentType("text/html");
+		String eduName=request.getParameter("eduName");
+		String trusteeName=request.getParameter("tUName");
+		String trusteePassword=request.getParameter("tPass");
+		int nSchools=Integer.parseInt(request.getParameter("nSchools"));
+		String radio=request.getParameter("group5");
+		for(int i=0;i<nSchools;i++)
+		{
+			String schoolName=request.getParameter("sName"+i);
+			out.print(schoolName+"<br>");
+			
+			String principalUserName=request.getParameter("pUName"+i);
+			String principalPassword=request.getParameter("pUPass"+i);
+			if(principalUserName!=null)
+			{
+				out.println(principalUserName+" "+principalPassword+"<br>");
+			}
+			
+		}
+		out.println(radio);
+		
+		
 	}
 }

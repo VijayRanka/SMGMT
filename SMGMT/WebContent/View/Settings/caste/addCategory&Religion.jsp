@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="com.servletStore.settings.section.model.SectionImpl"%>
-<%@page import="com.servletStore.settings.section.model.SectionPojo"%>
-<%@page import="com.servletStore.settings.section.model.SectionDAO"%>
+<%@page import="com.servletStore.settings.caste.model.CasteImpl"%>
+<%@page import="com.servletStore.settings.caste.model.CasteDAO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <head>
@@ -25,7 +25,8 @@
         <div class="container-fluid">
             <!-- Basic Validation -->
             <div class="row clearfix">	
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                     	<ol class="breadcrumb breadcrumb-col-orange">
 			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
@@ -33,81 +34,168 @@
 			              <li class="active"><i class="material-icons">archive</i> Data</li>
 			            </ol>
                         <div class="header">
-                            <h2>Section Details</h2>
+                            <h2>Category</h2>
                         </div>
+                        
+	
                         <div class="body">
-                            <form id="form_validation" action="/SMGMT/Section" method="POST">
+                            <form id="form_validation" action="/SMGMT/Caste" method="POST">
 	                            
 								<div class="row clearfix">
-									<div class="col-md-4">
+									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="section_name" title="Enter Section here" onkeyup="this.value=this.value.toUpperCase()"  onblur="this.value=$.trim(this.value)" required>
-												<label class="form-label">Section Name</label>
+												<input type="text" class="form-control" id="casteCategoryName" name="casteCategoryName" required>
+												<label class="form-label">Category Name</label>
 											</div>
 										</div>
 									</div>
 								</div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit">Add Section</button>
+                                <button type="submit" name="category_btn" id="category_btn" value="category_btn" class="btn btn-primary waves-effect">Add Category</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
+          
             <!-- #END# Basic Validation -->
-        
-        
-        	<!-- Exportable Table -->
+            
+            <!-- Basic Validation -->
+           
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+                    <div class="card">
+                    	<ol class="breadcrumb breadcrumb-col-orange">
+			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
+			              <li><a href="javascript:void(0);"><i class="material-icons">library_books</i> Library</a></li>
+			              <li class="active"><i class="material-icons">archive</i> Data</li>
+			            </ol>
+                        <div class="header">
+                            <h2>Religion</h2>
+                        </div>
+                        
+	
+                        <div class="body">
+                            <form id="form_advanced_validation" action="/SMGMT/Caste" method="POST">
+	                            
+								<div class="row clearfix">
+									<div class="col-md-6">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" id="religionName" name="religionName" required>
+												<label class="form-label">Religion Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+                                
+                                <button type="submit" name="religion_btn" id="religion_btn" VALUE="religion_btn" class="btn btn-primary waves-effect">Add Religion</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- #END# Basic Validation -->
+
+
+ <!--  Table -->
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Section List
+                                CATEGORY LIST
                             </h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" border="2">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Sr.No.</th>
-                                            <th>Section Name</th>
+                                            <th>Category</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+										<%
+											CasteDAO casteDAO=new CasteImpl();
+											request.setAttribute("display_CasteCategory", casteDAO.getCategoryDetails());
+										 	int i=0;
+										%>
                                     <tbody>
-                                    
-                                    <%
-                                    	SectionDAO sdao = new SectionImpl();
-                                    	List<SectionPojo> l = sdao.getSectionDetails();
-                                   
-										int count=1;
-                                    	Iterator itr = l.iterator();
-                                    	while(itr.hasNext()){
-                                    		SectionPojo pojo = (SectionPojo)itr.next();
-                                    		int id = pojo.getId();
-                                    %>
-                                        <tr>
-                                            <td><%=count %></td>
-                                            <td><%=pojo.getName() %></td>
-                                            <td><a href="#updateSection" data-toggle="modal"  onclick="searchName(<%=id%>)"><i class="material-icons">create</i></a> 
-                                            	 <i class="material-icons">clear</i></td>
-                                        </tr>
-                                     <%
-                                     	count++;
-                                    	}
-                                     %>  
+										<c:forEach items="${display_CasteCategory}" var="d">
+											<tr>
+												<td><%=(++i) %></td>
+												<td><c:out value="${d.casteCategoryName}"></c:out></td>
+												<td>
+													<a href="/SMGMT/Caste?category_id=${d.getCategory_id()}" data-toggle="tooltip" data-placement="bottom" title="Delete">
+														<i class="material-icons">clear</i>
+													</a>
+													<a href="#" data-toggle="tooltip" data-placement="bottom" title="Update">
+														<i class="material-icons">create</i>
+													</a>
+												</td>
+											</tr>
+										</c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                RELIGION LIST
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                
+                                    <thead>
+                                        <tr>
+                                            <th>Sr.No.</th>
+                                            <th>Religion</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+										<%
+											request.setAttribute("display_Religion", casteDAO.getReligionDetails());
+										 	i=0;
+										%>	
+                                    <tbody>
+										<c:forEach items="${display_Religion}" var="d">
+											<tr>
+												<td><%=(++i) %></td>
+												<td><c:out value="${d.religionName}"></c:out></td>
+												<td>
+													<a href="/SMGMT/Caste?religion_id=${d.getReligion_id()}" data-toggle="tooltip" data-placement="bottom" title="Delete">
+														<i class="material-icons">clear</i>
+													</a>
+													<a href="#" data-toggle="tooltip" data-placement="bottom" title="Update">
+														<i class="material-icons">create</i>
+													</a>													
+												</td>
+											</tr>	
+										</c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
-            <!-- #END# Exportable Table -->
+            <!-- #END#  Table -->
+
+       
         
+
         
         </div>
     </section>
@@ -156,6 +244,11 @@
 
 <!--     Waves Effect Plugin Js -->
     <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+    
+    <script src="/SMGMT/Config/js/pages/ui/tooltips-popovers.js"></script>
+    
+    
     
  <!-- Jquery DataTable Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-datatable/jquery.dataTables.js"></script>

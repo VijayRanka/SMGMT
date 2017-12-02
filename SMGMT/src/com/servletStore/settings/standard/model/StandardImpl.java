@@ -1,4 +1,4 @@
-package com.servletStore.settings.section.model;
+package com.servletStore.settings.standard.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dbconnect.DBConnection;
+import com.servletStore.settings.school.model.SchoolPOJO;
+import com.servletStore.settings.section.model.SectionPojo;
 
-public class SectionImpl implements SectionDAO
-{
+public class StandardImpl implements StandardDAO{
+
 	DBConnection dbconnect=new DBConnection();
 	Connection connection;
 	
-	public SectionImpl() 
+	public StandardImpl() 
 	{
 	
 		connection=dbconnect.getConnection();
@@ -22,26 +24,26 @@ public class SectionImpl implements SectionDAO
 	}
 
 	@Override
-	public int addSection(SectionPojo sectionPojo) 
+	public int addStandard(StandardPOJO standardPojo) 
 	{
 		int status=0;
-		String query="insert into sections_master(`name`) values (?)";
+		String query="insert into std_master(`name`) values (?)";
 		PreparedStatement ps;
 		try {
 			ps = connection.prepareStatement(query);
-			ps.setString(1, sectionPojo.getName());
+			ps.setString(1, standardPojo.getName());
 			status = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return status;
 	}
-
+	
 	@Override
-	public List<SectionPojo> getSectionDetails() 
+	public List<StandardPOJO> getStandardDetails() 
 	{
-		List<SectionPojo> list=new ArrayList<SectionPojo>();
-		String query="SELECT `id`, `name` FROM `sections_master";
+		List<StandardPOJO> list=new ArrayList<StandardPOJO>();
+		String query="SELECT `id`, `name` FROM `std_master";
 		PreparedStatement ps;
 		try {
 			ps = connection.prepareStatement(query);
@@ -50,10 +52,10 @@ public class SectionImpl implements SectionDAO
 			while(rs.next())
 			{
 				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
-				SectionPojo pojo=new SectionPojo();
-			    pojo.setId(rs.getInt("id"));
-			    pojo.setName(rs.getString("name"));
-				list.add(pojo);			
+				StandardPOJO stdpojo=new StandardPOJO();
+				stdpojo.setId(rs.getInt("id"));
+				stdpojo.setName(rs.getString("name"));
+				list.add(stdpojo);			
 			}
 		} catch (SQLException e) {
 			
@@ -66,10 +68,10 @@ public class SectionImpl implements SectionDAO
 	
 	
 	@Override
-	public List<SectionPojo> getSectionDetailsBySchoolId(String sid) 
+	public List<SchoolPOJO> getSchoolDetails() 
 	{
-		List<SectionPojo> list=new ArrayList<SectionPojo>();
-		String query="SELECT section_id FROM fk_school_section_details where school_id="+sid+"";
+		List<SchoolPOJO> list=new ArrayList<SchoolPOJO>();
+		String query="SELECT `id`, `name` FROM `school_master";
 		PreparedStatement ps;
 		try {
 			ps = connection.prepareStatement(query);
@@ -78,13 +80,10 @@ public class SectionImpl implements SectionDAO
 			while(rs.next())
 			{
 				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
-				
-				String query1="SELECT `id`, `name` FROM `sections_master where id="+rs.getInt("id")+"";
-				
-				SectionPojo pojo=new SectionPojo();
-			    pojo.setId(rs.getInt("id"));
-			    pojo.setName(rs.getString("name"));
-				list.add(pojo);			
+				SchoolPOJO schoolpojo=new SchoolPOJO();
+				schoolpojo.setSchool_id(rs.getInt("id"));
+				schoolpojo.setName(rs.getString("name"));
+				list.add(schoolpojo);			
 			}
 		} catch (SQLException e) {
 			
@@ -94,4 +93,5 @@ public class SectionImpl implements SectionDAO
 		return list;
 		
 	}
+		
 }

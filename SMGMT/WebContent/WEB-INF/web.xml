@@ -38,6 +38,27 @@
     <url-pattern>/Student.do</url-pattern>
   </servlet-mapping>
 <!-- *************************************************************   END HIMANSHU *************************************************************** -->
+
+<!--  ***************************************************************  MUKESH START ****************************************************************** -->
+
+<servlet>
+	<servlet-name>Section</servlet-name>
+	<servlet-class>com.servletStore.settings.section.controller.Section</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Section</servlet-name>
+	<url-pattern>/Section</url-pattern>
+</servlet-mapping>
+<servlet>
+  <servlet-name>AddStandard</servlet-name>
+  <servlet-class>com.servletStore.settings.standard.controller.AddStandard</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>AddStandard</servlet-name>
+  <url-pattern>/AddStandard</url-pattern>
+</servlet-mapping>
+<!--  *************************************************************** MUKESH END ****************************************************************** -->
+
 <!--  ***************************************************************  VIJAY****************************************************************** -->
 <servlet>
     <servlet-name>UserLogin</servlet-name>
@@ -48,4 +69,30 @@
     <url-pattern>/UserLogin</url-pattern>
   </servlet-mapping>
 <!--  *************************************************************** END VIJAY****************************************************************** -->
+
+
+<!--  *************************************************************** SARANG ****************************************************************** -->
+
+  <servlet>
+    <servlet-name>Caste</servlet-name>
+    <servlet-class>com.servletStore.settings.caste.controller.Caste</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Caste</servlet-name>
+    <url-pattern>/Caste</url-pattern>
+  </servlet-mapping>
+
+<!--  *************************************************************** SARANG END ****************************************************************** -->
+
+<!--  ***************************************************************  START SANDEEP****************************************************************** -->
+<servlet>
+    <servlet-name>School</servlet-name>
+    <servlet-class>com.servletStore.settings.school.controller.School</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>School</servlet-name>
+    <url-pattern>/School</url-pattern>
+  </servlet-mapping>
+<!--  *************************************************************** END SANDEEP****************************************************************** -->
+
 </web-app>

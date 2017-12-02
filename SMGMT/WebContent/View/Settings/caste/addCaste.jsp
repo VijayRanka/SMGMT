@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="com.servletStore.settings.section.model.SectionImpl"%>
-<%@page import="com.servletStore.settings.section.model.SectionPojo"%>
-<%@page import="com.servletStore.settings.section.model.SectionDAO"%>
+<%@page import="com.servletStore.settings.caste.model.CasteImpl"%>
+<%@page import="com.servletStore.settings.caste.model.CasteDAO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <head>
@@ -33,72 +33,115 @@
 			              <li class="active"><i class="material-icons">archive</i> Data</li>
 			            </ol>
                         <div class="header">
-                            <h2>Section Details</h2>
+                            <h2>Caste</h2>
                         </div>
+                        
+	
                         <div class="body">
-                            <form id="form_validation" action="/SMGMT/Section" method="POST">
+                            <form id="form_validation" action="/SMGMT/Caste" method="POST">
 	                            
-								<div class="row clearfix">
-									<div class="col-md-4">
-										<div class="form-group form-float">
-											<div class="form-line">
-												<input type="text" class="form-control" name="section_name" title="Enter Section here" onkeyup="this.value=this.value.toUpperCase()"  onblur="this.value=$.trim(this.value)" required>
-												<label class="form-label">Section Name</label>
-											</div>
-										</div>
+	                            
+   	            		    <div class="col-md-4">
+   	            		      <div class="form-group form-float">
+								<div class="form-line">
+   	            		      	
+                                    <select class="form-control show-tick" name="category" id="category" title="Select Category" data-live-search="true" required="required">
+                                    
+                                   		<%
+			 								CasteDAO castedao=new CasteImpl();
+			 								request.setAttribute("list",castedao.getCategoryDetails());
+										%>
+										<c:forEach items="${list}" var="u">  
+										
+										 <option value="${u.getCategory_id()}">${u.getCasteCategoryName()}</option>
+										
+										</c:forEach>
+                                    </select>
+
+                                </div>
+	                          </div>
+	                       </div>     
+	                            
+	            		<div class="col-md-4 col-lg-4">
+							<div class="form-group form-float">
+								<div class="form-line">
+                                    <select class="form-control show-tick"  name="religion" id="religion" title="Select Religion" data-live-search="true" required="required">
+                                    
+                                   		<%
+			 								request.setAttribute("list",castedao.getReligionDetails());
+										%>
+										<c:forEach items="${list}" var="u">  
+										
+										 <option value="${u.getReligion_id()}">${u.getReligionName()}</option>
+										
+										</c:forEach>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>        
+	                            
+
+						<div class="row clearfix">
+							<div class="col-md-4">
+								<div class="form-group form-float">
+									<div class="form-line">
+										<input type="text" class="form-control" id="casteName" name="casteName" required>
+										<label class="form-label">Caste Name</label>
 									</div>
 								</div>
-                                
-                                <button class="btn btn-primary waves-effect" type="submit">Add Section</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+							</div>
+						</div>
+                              
+                              <button type="submit" name="caste_btn" id="caste_btn" value="caste_btn" class="btn btn-primary waves-effect">Add Caste</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            
             <!-- #END# Basic Validation -->
-        
-        
-        	<!-- Exportable Table -->
+
+
+            <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Section List
+                                EXPORTABLE TABLE
                             </h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" border="2">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Sr.No.</th>
-                                            <th>Section Name</th>
-                                            <th>Action</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                    <%
-                                    	SectionDAO sdao = new SectionImpl();
-                                    	List<SectionPojo> l = sdao.getSectionDetails();
-                                   
-										int count=1;
-                                    	Iterator itr = l.iterator();
-                                    	while(itr.hasNext()){
-                                    		SectionPojo pojo = (SectionPojo)itr.next();
-                                    		int id = pojo.getId();
-                                    %>
                                         <tr>
-                                            <td><%=count %></td>
-                                            <td><%=pojo.getName() %></td>
-                                            <td><a href="#updateSection" data-toggle="modal"  onclick="searchName(<%=id%>)"><i class="material-icons">create</i></a> 
-                                            	 <i class="material-icons">clear</i></td>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
                                         </tr>
-                                     <%
-                                     	count++;
-                                    	}
-                                     %>  
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -107,7 +150,10 @@
                 </div>
             </div>
             <!-- #END# Exportable Table -->
+
+       
         
+
         
         </div>
     </section>
@@ -156,6 +202,11 @@
 
 <!--     Waves Effect Plugin Js -->
     <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+    
+    <script src="/SMGMT/Config/js/pages/ui/tooltips-popovers.js"></script>
+    
+    
     
  <!-- Jquery DataTable Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-datatable/jquery.dataTables.js"></script>
