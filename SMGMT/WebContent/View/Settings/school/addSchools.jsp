@@ -335,9 +335,9 @@
 															
 									<div class="col-md-8">
 										<div class="form-group form-float">
-											<div class="form-line focused">
-											<input type="text" name="update_id" id="Updateid">	
-												<input type="text" class="form-control " name="school_name" id="school_nameid" onkeyup="this.value=this.value.toUpperCase()" required>
+											<div class="form-line ">
+											<input type="hidden" name="update_id" id="Updateid">	
+												<input type="text" class="form-control " name="school_name" id="school_nameid" onkeyup="this.value=this.value.toUpperCase()" autofocus required>
 												<label class="form-label 'active'">School Name</label>
 											</div>
 										</div>
@@ -527,10 +527,8 @@
 				var demoStr = this.responseText.split(",");
 				
 				document.getElementById("Updateid").value = demoStr[0];
-				
+				 
 				document.getElementById("school_nameid").value = demoStr[1];	
-				 document.getElementById("school_nameid").focus();
-				//document.getElementById("section_nameid").value = demoStr[2];				
 				document.getElementById("school_addressid").value = demoStr[2];
 				document.getElementById("sloganid").value = demoStr[3];
 				document.getElementById("index_noid").value = demoStr[4];
