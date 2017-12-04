@@ -69,28 +69,30 @@ public class SectionImpl implements SectionDAO
 	public List<SectionPojo> getSectionDetailsBySchoolId(String sid) 
 	{
 		List<SectionPojo> list=new ArrayList<SectionPojo>();
-		String query="SELECT section_id FROM fk_school_section_details where school_id="+sid+"";
-		PreparedStatement ps;
+		String query="SELECT section_id FROM fk_school_section_details where school_id="+sid;
+		PreparedStatement ps, ps1;
+		
 		try {
 			ps = connection.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next())
 			{
-				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
+				String query1="SELECT `id`, `name` FROM `sections_master` where id="+rs.getInt(1);
+				ps1 = connection.prepareStatement(query1);
+				ResultSet rs1=ps1.executeQuery();
 				
-				String query1="SELECT `id`, `name` FROM `sections_master where id="+rs.getInt("id")+"";
-				
+				while(rs1.next()){
 				SectionPojo pojo=new SectionPojo();
-			    pojo.setId(rs.getInt("id"));
-			    pojo.setName(rs.getString("name"));
-				list.add(pojo);			
+			    pojo.setId(rs1.getInt(1));
+			    pojo.setName(rs1.getString(2));
+				list.add(pojo);		
+				}
 			}
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-		
 		return list;
 		
 	}
