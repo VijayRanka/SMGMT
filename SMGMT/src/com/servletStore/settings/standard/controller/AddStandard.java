@@ -52,17 +52,17 @@ public class AddStandard extends HttpServlet {
 		
 		
 		if(request.getParameter("schoolId")!=null){
-			System.out.println("dfghjk");
 			
 			SectionDAO secImpl = new SectionImpl();
 			List<SectionPojo> sectionList = secImpl.getSectionDetailsBySchoolId(request.getParameter("schoolId"));
-			
 			Iterator itr = sectionList.iterator();
+			
 			String s="";
 			while(itr.hasNext()){
-				s+=itr.next()+",";
+				
+				SectionPojo pojo = (SectionPojo)itr.next();
+				s+=pojo.getId()+","+pojo.getName()+",";
 			}
-			System.out.print("s"+s);
 			out.print(s);
 			
 		}
