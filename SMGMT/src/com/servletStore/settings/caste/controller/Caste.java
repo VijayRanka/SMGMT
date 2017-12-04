@@ -88,5 +88,14 @@ public class Caste extends HttpServlet {
 			response.sendRedirect("View/Settings/caste/addCaste.jsp");
 		}
 		
+		if(request.getParameter("caste_id")!=null){
+			
+			int caste_id=Integer.parseInt(request.getParameter("caste_id"));
+			
+			casteDAO.deleteCaste(caste_id);
+			
+			response.sendRedirect("View/Settings/caste/addCaste.jsp");
+		}
+		
 	}
 }
