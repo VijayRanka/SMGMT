@@ -75,9 +75,9 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-			                                    <select class="form-control show-tick" name="sectionId"  title="Select Section" data-live-search="true" required="required">
+			                                    <select class="form-control show-tick" name="sectionId" id="sectionId" title="Select Section" data-live-search="true" required="required">
 			                                        
-			                                        <%
+			                                        <%-- <%
 				                                    	SectionDAO sdao2 = new SectionImpl();
 				                                    	List<SectionPojo> l2 = sdao2.getSectionDetails();
 				                                   
@@ -91,7 +91,7 @@
 				                                     <%
 				                                     	count2++;
 				                                    	}
-				                                     %>  
+				                                     %>   --%>
 			                                    </select>
 											</div>
 										</div>
@@ -194,14 +194,59 @@
 function getSections() {
 	
 	var sid = document.getElementById("schoolId").value;	
-alert();
 	var xhttp;
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			var demoStr = this.responseText;
-			alert(demoStr);
-		}
+			var demoStr = this.responseText.split(",");
+			/* 
+			for(var i=0; i<demoStr.length; i++){
+				$('<option>').val(demoStr[i]).text(demoStr[++i]).appendTo('#sectionId');
+			}
+			 */
+			var select = document.getElementById('sectionId');
+			
+			$("#sectionId").empty();
+			 for (var i = 0; i<demoStr.length-1; i++){
+				 
+			     var opt = document.createElement('option');
+			     opt.value = demoStr[i];
+			     opt.innerHTML =  demoStr[++i];
+			     select.appendChild(opt);
+			     
+			 }	
+			 
+			//$.getScript('/SMGMT/Config/plugins/jquery/jquery.min.js', function() { /* alert() */});
+			//$.getScript('/SMGMT/Config/plugins/bootstrap/js/bootstrap.js', function() { /* alert() */});
+			//$.getScript('/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js', function() { /* alert() */});
+
+			
+			
+			$('script').each(function() {
+				alert("js");
+			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/jquery/jquery.min.js') {
+			        var old_src = $(this).attr('src');
+			        $(this).attr('src', '');
+			        
+			    }
+			});
+			
+			$('script').each(function() {
+			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap/js/bootstrap.js') {
+			        var old_src = $(this).attr('src');
+			        $(this).attr('src', '');
+			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+			    }
+			});
+			
+			$('script').each(function() {
+			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js') {
+			        var old_src = $(this).attr('src');
+			        $(this).attr('src', '');
+			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+			    }
+			});
+	}
 	};
 	
 	xhttp.open("POST", "/SMGMT/AddStandard?schoolId="+sid, true);
