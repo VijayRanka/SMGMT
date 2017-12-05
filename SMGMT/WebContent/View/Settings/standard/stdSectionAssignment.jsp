@@ -77,7 +77,7 @@
 											<div class="form-line">
 			                                    <select class="form-control show-tick" name="sectionId" id="sectionId" title="Select Section" data-live-search="true" required="required">
 			                                        
-			                                        <%-- <%
+			                                        <%
 				                                    	SectionDAO sdao2 = new SectionImpl();
 				                                    	List<SectionPojo> l2 = sdao2.getSectionDetails();
 				                                   
@@ -91,7 +91,7 @@
 				                                     <%
 				                                     	count2++;
 				                                    	}
-				                                     %>   --%>
+				                                     %> 
 			                                    </select>
 											</div>
 										</div>
@@ -220,7 +220,7 @@ function getSections() {
 			//$.getScript('/SMGMT/Config/plugins/bootstrap/js/bootstrap.js', function() { /* alert() */});
 			//$.getScript('/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js', function() { /* alert() */});
 
-			
+		/* 	
 			
 			$('script').each(function() {
 				alert("js");
@@ -245,7 +245,7 @@ function getSections() {
 			        $(this).attr('src', '');
 			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
 			    }
-			});
+			}); */
 	}
 	};
 	
