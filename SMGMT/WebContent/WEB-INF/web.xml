@@ -76,4 +76,12 @@
     <servlet-name>School</servlet-name>
     <url-pattern>/School</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StdSectionAssignment</servlet-name>
+    <servlet-class>com.servletStore.settings.standard.controller.StdSectionAssignment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StdSectionAssignment</servlet-name>
+    <url-pattern>/StdSectionAssignment</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -40,7 +40,7 @@
                             <h2>Standard Details</h2>
                         </div>
                         <div class="body">
-                            <form id="form_validation" action="/SMGMT/AddStandard" method="POST">
+                            <form id="form_validation" action="/SMGMT/StdSectionAssignment" method="POST">
 	                            
 								<div class="row clearfix">
 								
@@ -57,7 +57,7 @@
 				                                    	Iterator itr3 = l3.iterator();
 				                                    	while(itr3.hasNext()){
 				                                    		SchoolPOJO stdPojo3 = (SchoolPOJO)itr3.next();
-				                                    		int id3 = stdPojo3.getSchool_id();
+				                                    		int id3 = stdPojo3.getId();
 				                                    %>
 				                                    	<option value="<%=id3 %>"><%=stdPojo3.getName() %></option>
 														
@@ -75,7 +75,6 @@
 									<div class="col-md-6">
 										<div class="form-group form-float" id="demoSelect">
 											<div class="form-line">
-<<<<<<< HEAD
 											
 											
 			                                    <select class="form-control show-tick"  name="sectionId" id="sectionId" onchange="setSelected()" title="Select Section"  data-live-search="true"  required="required">
@@ -99,7 +98,7 @@
 	                                    <div class="col-md-3">
 											<div class="form-group form-float">
 												<div class="demo-checkbox">
-			                                		<input type="checkbox" name="stds" id="basic_checkbox_<%=count1 %>" checked />
+			                                		<input type="checkbox" name="stds" id="basic_checkbox_<%=count1 %>" value="<%=id %>" />
 			                                		<label for="basic_checkbox_<%=count1 %>"><%=stdPojo1.getName() %></label>
 												</div>
 											</div>
@@ -111,7 +110,7 @@
                                      %>  
 								</div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit">Add Standard</button>
+                                <button class="btn btn-primary waves-effect" type="submit">Generate Classes</button>
                             </form>
                         </div>
                     </div>
@@ -229,42 +228,8 @@ function getSections() {
 			     count++; 
 			 }
 			 
-<<<<<<< HEAD
 			 z[1].innerHTML=txt;
 		}
-=======
-			//$.getScript('/SMGMT/Config/plugins/jquery/jquery.min.js', function() { /* alert() */});
-			//$.getScript('/SMGMT/Config/plugins/bootstrap/js/bootstrap.js', function() { /* alert() */});
-			//$.getScript('/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js', function() { /* alert() */});
-
-		/* 	
-			
-			$('script').each(function() {
-				alert("js");
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/jquery/jquery.min.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        
-			    }
-			});
-			
-			$('script').each(function() {
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap/js/bootstrap.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-			    }
-			});
-			
-			$('script').each(function() {
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-			    }
-			}); */
-	}
->>>>>>> refs/remotes/origin/master
 	};
 	
 	xhttp.open("POST", "/SMGMT/AddStandard?schoolId="+sid, true);
