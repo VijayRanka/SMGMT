@@ -148,5 +148,17 @@ public class CasteImpl implements CasteDAO {
 		}
 		return list;
 	}
+
+	@Override
+	public void deleteCaste(int caste_id) {
+		
+		try {
+			pstmt=connection.prepareStatement("DELETE FROM caste WHERE id=?");
+			pstmt.setInt(1, caste_id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}				
+	}
 	
 }

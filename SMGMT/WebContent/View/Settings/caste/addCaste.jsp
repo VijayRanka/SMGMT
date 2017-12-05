@@ -116,32 +116,39 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
+										<tr>
+											<th>Sr.No</th>
+											<th>Category</th>
+											<th>Religion</th>
+											<th>Caste Name</th>
+											<th>Action</th>
+										</tr>
                                     </thead>
+                                    <%
+										request.setAttribute("list", castedao.getCasteDetails());
+                                    	int i=0;
+									%>
+									
+
+
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
+										<c:forEach items="${list}" var="u">  	
+												<tr>	
+													<td><%=(++i) %></td>
+													<td>${u.getCasteCategoryName()}</td>
+													<td>${u.getReligionName()}</td>  
+													<td>${u.getCasteName()}</td>
+													<td>
+														<a href="/SMGMT/Caste?caste_id=${u.getCaste_id()}" data-toggle="tooltip" data-placement="bottom" title="Delete">
+															<i class="material-icons">clear</i>
+														</a>
+														<a href="#" data-toggle="tooltip" data-placement="bottom" title="Update">
+															<i class="material-icons">create</i>
+														</a>
+													</td>
+												</tr>	
+																										
+										</c:forEach> 
                                     </tbody>
                                 </table>
                             </div>
