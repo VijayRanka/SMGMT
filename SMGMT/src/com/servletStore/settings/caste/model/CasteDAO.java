@@ -24,4 +24,5 @@ public interface CasteDAO {
 	
 	public List<CastePOJO> getCasteDetails();
 
+	public void deleteCaste(int caste_id);
 }

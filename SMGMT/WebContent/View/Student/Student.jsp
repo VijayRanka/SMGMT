@@ -1,266 +1,753 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-
-<title>AxilBoard Bootstrap 4 Admin Template</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="description" content="AxilBoard Bootstrap 4 Admin Template">
-<meta name="author" content="CodePassenger">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<!-- google fonts -->
+<!-- =======================	CSS Include ======================= -->
+    <jsp:include page="/Common/cssJs.jsp"></jsp:include>
+<!-- =======================	End CSS Include ======================= -->
 </head>
-<body>
-	<form id="myForm" action="/SMGMT/Student.do" method="post">
-	
-		<!-- 	************************************** School Detail ************************************* -->
-		
-		<h4>School Details</h4>
-		
-		<label>School Name</label>
-		<select name="schoolId" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected></option>
-			<option value="1">School !</option>
-			<option value="2">School @</option>
-		</select>
-		
-		
-		<label>Section</label>
-		<select name="sectionId" required="required" oninvalid="this.setCustomValidity('Please Select Section')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected></option>
-			<option value="2">Class X</option>
-			<option value="3">Class V</option>
-		</select>
-		 
-		<label>Class</label>
-		<select name="classId" required="required" oninvalid="this.setCustomValidity('Please Select Class')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected></option>
-			<option value="5">Class X</option>
-			<option value="4">Class V</option>
-		</select> 
-		
-		<label>PRN Number</label>
-		<input type="text" id="" name="prnNo" placeholder="PRN Number"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label> Admission Date</label> 
-		<input type="date" id="" name="admissionDate" required="required" oninvalid="this.setCustomValidity('Please Select Admission')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<!-- 	***********************************************Student Detail ******************************* -->
-		<h4>Personal Details</h4>
-		
-		<label>First Name</label>
-		<input type="text" id="" name="firstName" placeholder="First Name"  required="required" oninvalid="this.setCustomValidity('Please Enter First Name')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
+
+<body class="theme-red">
+<!-- =======================	Header Include ======================= -->
+    <jsp:include page="/Common/header.jsp"></jsp:include>
+<!-- =======================	End Header Include ======================= -->
+<!-- =======================	Left Navbar Include ======================= -->
+    <jsp:include page="/Common/left-navbar.jsp"></jsp:include>
+<!-- =======================	End Left Navbar Include ======================= -->
+  
+
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                    	<ol class="breadcrumb breadcrumb-col-orange">
+			              <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
+			              <li><a href="javascript:void(0);"><i class="material-icons">library_books</i> Library</a></li>
+			              <li class="active"><i class="material-icons">archive</i> Data</li>
+			            </ol>
+                        <div class="header">
+                            <h2>Student Details</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" action="/SMGMT/Student.do" method="post">
+                            	<!-- 	************************************** OFFICIAL DETAILS ************************************* -->
+	                            <h2 class="card-inside-title">
+	                            	OFFICIAL DETAILS
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" name="academicYearId" title="Select Academic Year" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>2016-2017</option>
+			                                        <option>2017-2018</option>
+			                                    </select>
+			                                 </div>
+			                              </div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" name="sectionId" title="Select Section" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" name="stdId" title="Select Standard" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <select class="form-control show-tick" name="divId" title="Select Division" data-live-search="true" required="required">
+			                                        <option></option>
+			                                        <option>Burger, Shake and a Smile</option>
+			                                        <option>Sugar, Spice and all things nice</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="bookNo" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Book Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="grNo" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">General Register Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="datepicker form-control" name="admissionDate" required="required">
+												<label class="form-label">Admission Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+														<input type="checkbox" name="classAllow" id="md_checkbox_9" class="chk-col-teal" />
+                                						<label for="md_checkbox_9">Class Allocated</label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="previousSchool" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Previous School Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="currentStdId" title="Select Standard" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="currentdivId" title="Select Division" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+													<select class="form-control show-tick" name="medium" title="Select Medium" data-live-search="true" required="required">
+				                                        <option></option>
+				                                        <option>Burger, Shake and a Smile</option>
+				                                        <option>Sugar, Spice and all things nice</option>
+				                                    </select>
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+														<input type="checkbox" name="semiEnglish" id="semiEnglish" class="chk-col-teal" />
+                                						<label for="semiEnglish">Semi English </label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	************************************** End OFFICIAL DETAILS ************************************* -->
+								<!-- 	************************************** Personal Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Personal Details
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="firstName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">First Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="middleName" required>
+												<label class="form-label">Middle Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="lastName" required>
+												<label class="form-label">Last Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="demo-masked-input">
+												<div class="input-group">
+		                                            <span class="input-group-addon">
+		                                                <i class="material-icons">date_range</i>
+		                                            </span>
+		                                            <div class="form-line">
+		                                                <input type="text" name="dob" id="dob" onblur="getAge()" class="form-control date" title="Enter Date of Birth" placeholder="Date Of Birth(Ex: 04/06/1995)" >
+		                                            </div>
+		                                        </div>
+		                                    </div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="age" id="age" required>
+												<label class="form-label">Age</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="birthPlace" id="" required>
+												<label class="form-label">Birth Place</label>
+											</div>
+										</div>
+									</div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="radio" name="gender" id="male" class="with-gap"  checked>
+			                                    <label for="male">Male</label>
 			
-		<label>Middle Name</label>
-		<input type="text" id="" name="middleName" placeholder="Middle Name"  required="required" oninvalid="this.setCustomValidity('Please Enter Middle Name')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
+			                                    <input type="radio" name="gender" id="female" class="with-gap">
+			                                    <label for="female" class="m-l-20">Female</label>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="bloodGroop" title="Blood Group">
+													<option></option>
+			                                        <option>A+</option>
+													<option>O+</option>
+													<option>B+</option>
+													<option>AB+</option>
+													<option>A-</option>
+													<option>O-</option>
+													<option>B-</option>
+													<option>AB-</option>
+			                                    </select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="heigth">
+												<label class="form-label">Height</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                   <input type="text" class="form-control" name="weight">
+												<label class="form-label">Weight</label>
+											</div>
+										</div>
+									</div>
+                                </div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="studAadharNumber" title="Enter Aadhar Number" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Aadhar Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="nationality" required>
+												<label class="form-label"> Nationality</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="motherTongue" title="Select Mother Tongue">
+													<option value="Marathi">Marathi</option>
+													<option value="Gujarati">Gujarati</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="religious" title="Select Religious ">
+													<option></option>
+													<option value="Hindu">Hindu</option>
+													<option value="Musalim">Musalim</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="cast" title="Select Caste">
+													<option></option>
+													<option value="Patel">Patel</option>
+													<option value="Marathi">Marathi</option>
+												</select> 
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="castCategory" title="Select Caste Category ">
+													<option></option>
+													<option value="Open">Open</option>
+													<option value="OBC">OBC</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												 <div class="switch">
+<!-- 				                                    <label>Minority<input type="checkbox" checked onclick="alert(this.checked)"><span class="lever"></span></label> -->
+														<input type="checkbox" id="minority" name="minority" class="chk-col-teal" />
+                                						<label for="md_checkbox_9">Minority</label>
+				                                </div>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<div class="switch">
+				                                    <label>Physical	Handicap<input type="checkbox" name="physicalHandicap" checked onclick="alert(this.checked)"><span class="lever"></span></label>	
+				                                </div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+			                                    <input type="text" class="form-control" name="physicalHandicapType">
+			                                    <label class="form-label">Physical	Handicap Type</label>
+											</div>
+										</div>
+									</div>
+                                </div>
+                                <!-- 	**************************************End Personal Details ************************************* -->
+                                <!-- 	************************************** FATHER'S Details ************************************* -->
+                                <h2 class="card-inside-title">
+	                            	FATHER'S Details
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Name </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherMobileNo">
+												<label class="form-label">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherAaadharNo">
+												<label class="form-label">Aaadhar number</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherDesignation" onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Occupation </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="fatherIncome">
+												<label class="form-label">Income</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												 <input type="text" class="form-control" name="fatherEmail">
+												<label class="form-label">Email Address</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End FATHER'S Details ************************************* -->
+								<!-- 	************************************** MOTHER'S Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	MOTHER'S Details
+	                            </h2>
+	                            <hr>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherName" title="Enter First Name" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Name </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherMobileNo" required>
+												<label class="form-label">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherAaadharNo" required>
+												<label class="form-label">Aaadhar number</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherDesignation" onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Occupation </label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherIncome">
+												<label class="form-label"> Income</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="motherEmail">
+												<label class="form-label">Email Address</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	************************************** End MOTHER'S Details ************************************* -->
+								<!-- 	************************************** Contact Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Contact Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="pinCode" id="pinCode" title="Enter Pincode" required onblur="this.value=$.trim(this.value); loadDoc()">
+												<label class="form-label">Pin Code</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="taluk" id="taluk" title="Enter Taluk" required onblur="this.value=$.trim(this.value)">
+												<label class="form-label">Taluk</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="district" id="district" required>
+												<label class="form-label">District</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="state" id="state" required>
+												<label class="form-label"> State</label>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+<!-- 								<div class="row clearfix"> -->
+										<div class="form-group form-float">
+		                                    <div class="form-line">
+		                                        <textarea name="addressOne" id="addressOne" cols="30" rows="3" class="form-control no-resize" required></textarea>
+		                                        <label class="form-label">Address</label>
+		                                    </div>
+		                                </div>
+<!-- 								</div> -->
+								<!-- 	************************************** End Contact Details ************************************* -->
+								<!-- 	************************************** Bank Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Bank Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="bankName" required>
+												<label class="form-label"> Bank Name</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="ifscCode" required>
+												<label class="form-label"> IFSC Code</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="accountNo" required>
+												<label class="form-label"> Account No</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End Bank Details ************************************* -->
+								<!-- 	************************************** Transportation Details ************************************* -->
+								<h2 class="card-inside-title">
+	                            	Transportation Details
+	                            </h2>
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<select class="form-control show-tick" name="busStop" title="Select Bus Stop Name">
+													<option></option>
+													<option value="SBI">SBI</option>
+													<option value="BOB">BOB</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="vehicleMonth">
+												<label class="form-label">Transportation Month</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group form-float">
+											<div class="form-line">
+												<input type="text" class="form-control" name="totRate">
+												<label class="form-label">Transportation Discount</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 	**************************************End Transportation Details ************************************* -->
+								<!-- 	************************************** Submit ************************************* -->
+                                <button class="btn btn-primary waves-effect" type="submit" name="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+        </div>
+    </section>
+
+<!--     Jquery Core Js -->
+    <script src="/SMGMT/Config/plugins/jquery/jquery.min.js"></script>
+
+<!--     Bootstrap Core Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap/js/bootstrap.js"></script>
+
+<!--     Select Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+<!--     Slimscroll Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    
+<!--     Bootstrap Colorpicker Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+<!--     Dropzone Plugin Js -->
+    <script src="/SMGMT/Config/plugins/dropzone/dropzone.js"></script>
+
+<!--     Input Mask Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+<!--     Multi Select Plugin Js -->
+    <script src="/SMGMT/Config/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+<!--     Jquery Spinner Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+<!--     Bootstrap Tags Input Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--     noUISlider Plugin Js -->
+    <script src="/SMGMT/Config/plugins/nouislider/nouislider.js"></script>
+
+<!--     Jquery Validation Plugin Css -->
+    <script src="/SMGMT/Config/plugins/jquery-validation/jquery.validate.js"></script>
+
+<!--     JQuery Steps Plugin Js -->
+    <script src="/SMGMT/Config/plugins/jquery-steps/jquery.steps.js"></script>
+
+<!--     Sweet Alert Plugin Js -->
+    <script src="/SMGMT/Config/plugins/sweetalert/sweetalert.min.js"></script>
+
+<!--     Waves Effect Plugin Js -->
+    <script src="/SMGMT/Config/plugins/node-waves/waves.js"></script>
+    
+<!--      Autosize Plugin Js -->
+    <script src="/SMGMT/Config/plugins/autosize/autosize.js"></script>
+    
+<!--      Moment Plugin Js -->
+    <script src="/SMGMT/Config/plugins/momentjs/moment.js"></script>
+    
+<!--     Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="/SMGMT/Config/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+<!--     Custom Js -->
+    <script src="/SMGMT/Config/js/admin.js"></script>
+    <script src="/SMGMT/Config/js/pages/forms/form-validation.js"></script>
+	<script src="/SMGMT/Config/js/pages/forms/basic-form-elements.js"></script>
+	<script src="/SMGMT/Config/js/pages/forms/advanced-form-elements.js"></script>
+<!--     Demo Js -->
+    <script src="/SMGMT/Config/js/demo.js"></script>
+<script type="text/javascript">
+//====================================== PINCODE SEARCH =====================================
+	function loadDoc() {
+		var pinNew="";
+		$.getJSON("/SMGMT/Config/json/PincodeJson.json", function(json) {
+			pinNew=json;
+			myFunction(pinNew);
+		});
+	 
+	}
+	function myFunction(x) {
+		var pinNo=document.getElementById("pinCode").value
+		document.getElementById("taluk").value="";
+	    document.getElementById("district").value="";
+	    document.getElementById("state").value="";
+	  var i;
+	  for (i = 0; i <x.length; i++) {
+		var pin=x[i].pincode;
+	    if(pin == pinNo){
+	      //document.getElementById("pinNo").value=x[i].pincode;
+	      document.getElementById("taluk").value=x[i].taluk;
+	      document.getElementById("taluk").focus();
+	      document.getElementById("district").value=x[i].districtname;
+	      document.getElementById("district").focus();
+	      document.getElementById("state").value=x[i].statename;
+	      document.getElementById("state").focus();
+	      document.getElementById("addressOne").focus();
+		  break;
+	     }
+	  }
+	}
+//====================================== END PINCODE SEARCH =====================================
+//====================================== AGE Calculator  =====================================
+	function getAge() {
+		var inputDate = document.getElementById("dob").value;
+		var newDate=inputDate.split("/");
 		
-		<label>Last	Name</label> 
-		<input type="text" id="" name="lastName" placeholder="Last Name"  required="required" oninvalid="this.setCustomValidity('Please Enter Last Name')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			 
-		<label>Gender</label>
-		<input type="radio" id="gender" name="gender" checked="checked" >Male
-		<input type="radio" id="gender"	name="gender" >Female
-		<label>Date Of Birth</label>
-		<input type="date" name="dob" required="required" oninvalid="this.setCustomValidity('Please Select Date Of Birth')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		<label>Blood Group</label> 
-		 
-		<ul class="pagination pg-round">
 
-			<li class="page-item active"><a
-				class="page-link waves-effect waves-effect">A+</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">O+</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">B+</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">AB+</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">A-</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">O-</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">B-</a></li>
-			<li class="page-item"><a
-				class="page-link waves-effect waves-effect">AB-</a></li>
-
-
-		</ul>
-		<input type="hidden" name="bloodGroop" id="bloodGroop" value="A+" />
-		
-		<label>Height</label>
-		<input type="text" id="" name="heigth" placeholder="Height" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Weight</label>
-		<input type="text" id="" name="weight" placeholder="Weight" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Minority</label>
-		<input type="radio"	id="minority" name="minority" checked="checked" >YES
-		<input type="radio" id="minority" name="minority" >NO
-		
-		<label>Physical	Handicap</label>
-		<input type="radio" id="physicalHandicap" name="physicalHandicap" checked="checked">NO
-		<input type="radio" id="physicalHandicap" name="physicalHandicap" >YES
-		
-		<label>Physical Handicap Type</label>
-		<select name="physicalHandicapType">
-			<option selected value="Male">Physical</option>
-			<option value="Female">Handicap</option>
-		</select>
-		
-		<label></label>  
-		
-		<!-- ******************************************Family Detail ******************************************* -->
-		<h4>Family Details</h4>
-		
-		<label>Father Name</label>
-		<input type="text" id="" name="fatherName" placeholder="Father Name"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Mother Name</label>
-		<input type="text" id="" name="motherName" placeholder="Mother Name"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Nationality</label>
-		<input type="text" id="" name="nationality" placeholder="Nationality"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Father Designation</label>
-		<input type="text"	name="fatherDesignation" placeholder="Father Designation" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Father Income</label>
-		<input type="text" id="" name="fatherIncome"  placeholder="Father Income" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Mother Tongue</label>
-		<select name="motherTongue" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected value="Marathi">Marathi</option>
-			<option value="Gujarati">Gujarati</option>
-		</select> 
-		
-		<label>Cast Category</label>
-		<select name="castCategoryId" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected value="Oprn">Open</option>
-			<option value="OBC">OBC</option>
-		</select>
-		
-		<label>Religious</label>
-		<select name="religiousId" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected value="Hindu">Hindu</option>
-			<option value="Musalim">Musalim</option>
-		</select> 
-		
-		<label>Cast</label>
-		<select name="castId" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected value="Patel">Patel</option>
-			<option value="Marathi">Marathi</option>
-		</select>
-
-		 
-
-		<!-- ******************************************Contact Detail******************************************* -->
-		<h4>Contact Details</h4>
-
-		<label>Address Line 1</label>
-		<input type="text" id="" name="addressOne" placeholder="Address Line 1" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Address Line 2</label>
-		<input type="text" id="" name="addressTwo" placeholder="Address Line 2" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>City</label>
-		<input type="text" id="" name="city" placeholder="City" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-
-		<label>State</label>
-		<input type="text" name="state" placeholder="State" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Pin Code</label>
-		 <input type="text" id="" name="pinCode" placeholder="Pin Code" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-		<label>Country</label>
-		<input type="text" name="country" placeholder="Country"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		
-
-
-		 <label>Phone Number</label>
-		 <input type="text" name="phoneNumber" placeholder="Phone Number" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		 
-		 <label>Mobile Number</label>
-		 <input type="text" name="mobileNumber" placeholder="Mobile Number" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-		 
-		 <label>Email</label> 
-		 <input type="text"	name="email" placeholder="Email"  required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-
-
-		<!-- *********************************	Bank Detail ************************************************** -->
-
-		<h4>Bank Details</h4>
-
-		<label>Bank Name</label>
-		<select name="bankId">
-			<option selected value="Patel">SBI</option>
-			<option value="Marathi">BOB</option>
-		</select>
-		
-		<label>IFSC code</label>
-		 <select name="ifscId">
-			<option selected value="Patel">SBI0Z003</option>
-			<option value="Marathi">BOBX007</option>
-		</select>
-		
-		<label>Account No</label>
-		<input type="text" name="accountNo" placeholder="Account No." required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-
-
-		<!-- *********************************	Transportation Detail ************************************************** -->
-
-		<h4>Transportation Details</h4>
-		
-		<label>Vehicle Name</label>
-		<select name="vehicleId" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			<option selected value="Patel">BUSX002</option>
-			<option value="Marathi">BUSX001</option>
-		</select>
-		
-		<label>Transportation Rate</label>
-		<input type="text" name="vehicleRate" placeholder="Transportation Rate." required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Transportation Discount</label>
-		 <input	type="text" name="vehicleDiscount" placeholder="Transportation Discount." id="" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-
-
-		<!-- *********************************	Previous Detail ************************************************** -->
-
-
-
-
-
-		<h4>Previous Details</h4>
-
-
-
-
-
-
-
-
-		<label>Institute Name</label>
-		<input type="text" name="previousschoolId" placeholder="Institute Name" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Year</label>
-		<input type="text" name="year" placeholder="Year" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-			
-		<label>Course</label>
-	  	<input type="text" name="className" placeholder="Course" required="required" oninvalid="this.setCustomValidity('Please Select School')" oninput="setCustomValidity('')" onblur="this.value=$.trim(this.value)">
-
-
-		<!-- *********************************	Profile Picture ************************************************** -->
-		<h4>Profile Picture</h4>
-
-		<label>Profile Picture</label> 
-		Browse file..<input type="file" id="inputFile1" name="profilePicture">
-
-
-
-
-		<!-- ***************************************Submit********************************************************************** -->
-		<button type="submit" name="submit">Submit</button>
-		<button type="submit">Cancel</button>
-	</form>
+	    var byr = newDate[2];
+	    var bmo = newDate[1];
+	    bmo=bmo-1;
+	    var bday = newDate[0];
+	    
+	    var byr;
+	    var age;
+	    var now = new Date();
+	    tday=now.getDate();
+	    tmo=(now.getMonth());
+	    tyr=(now.getFullYear());
+	    
+	    if((tmo > bmo)||(tmo==bmo & tday>=bday)){
+	    	age=byr;
+	    }
+	    else{
+	    	age=parseInt(byr)+parseInt(1);
+	    }
+	    document.getElementById("age").value=(tyr-age);
+	    
+}
+//======================================End  AGE Calculator  =====================================
+</script>
 </body>
+
 </html>
