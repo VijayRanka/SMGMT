@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface SchoolDAO {
 	
-	public void addSchool(SchoolPOJO schoolPojo,int len);
+	public void addSchool(SchoolPOJO schoolPojo);
 	public List<SchoolPOJO> getSchoolInfo();
 	public List<SchoolPOJO> getSchoolDetails();
-	public void updateSchoolDetails(SchoolPOJO schoolPojo,String schoolId);
+	public void updateSchoolDetails(SchoolPOJO schoolPojo);
 	public List<SchoolPOJO> getSection(SchoolPOJO schoolPojo);
-	public List<SchoolPOJO> selectSchoolDetails(SchoolPOJO schoolPojo,String id);
-	
+	public List<SchoolPOJO> selectSchoolDetails(SchoolPOJO schoolPojo,int id);
+	public int deleteSchool(int id);
 	
 }

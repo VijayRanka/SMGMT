@@ -2,15 +2,17 @@ package com.servletStore.settings.school.model;
 
 public class SchoolPOJO {
 	
-	 private int school_id, section_id, delete_status,status;
+	 private int id, section_id, delete_status,status;
 	 
 	 private String name,sectionName,address,slogan,indexno,licenceno,udise,shoolcode,emailid,phoneno,board,punitcode,center,date,jubileeYear,establishYear,medium;
 	 
-	 public int getSchool_id() {
-		return school_id;
+
+	
+	public int getId() {
+		return id;
 	}
-	public void setSchool_id(int school_id) {
-		this.school_id = school_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getSection_id() {
 		return section_id;
