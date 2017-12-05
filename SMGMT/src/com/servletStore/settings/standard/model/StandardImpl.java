@@ -15,6 +15,7 @@ public class StandardImpl implements StandardDAO{
 
 	DBConnection dbconnect=new DBConnection();
 	Connection connection;
+	PreparedStatement ps;
 	
 	public StandardImpl() 
 	{
@@ -72,7 +73,7 @@ public class StandardImpl implements StandardDAO{
 	{
 		List<SchoolPOJO> list=new ArrayList<SchoolPOJO>();
 		String query="SELECT `id`, `name` FROM `school_master";
-		PreparedStatement ps;
+		
 		try {
 			ps = connection.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -81,7 +82,7 @@ public class StandardImpl implements StandardDAO{
 			{
 				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
 				SchoolPOJO schoolpojo=new SchoolPOJO();
-				schoolpojo.setSchool_id(rs.getInt("id"));
+				schoolpojo.setId(rs.getInt("id"));
 				schoolpojo.setName(rs.getString("name"));
 				list.add(schoolpojo);			
 			}
@@ -93,5 +94,31 @@ public class StandardImpl implements StandardDAO{
 		return list;
 		
 	}
+
+	@Override
+	public int addClass(StandardPOJO standardPojo, String schoolID, String sectionId){
+		int r=0;
+		String selectQuery = "SELECT `id` FROM `fk_school_section_details` WHERE school_id="+schoolID+" AND section_id="+sectionId;
+		try {
+			ps = connection.prepareStatement(selectQuery);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()){
+				int fkId = rs.getInt(1);
+				String insertQuery = "INSERT INTO `fk_class_master`(`std_id`, `fk_school_sec_id`) VALUES (?, ?)";
+				ps = connection.prepareStatement(insertQuery);
+				ps.setInt(1, standardPojo.getStdId());
+				ps.setInt(2, fkId);
+				r+=ps.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return r;
+	}
+	
+	
 		
 }
