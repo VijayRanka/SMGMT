@@ -1,5 +1,7 @@
 package com.servletStore.student.model;
 
+import java.util.List;
+
 public class StudentImpl implements StudentDAO {
 
 	@Override
@@ -63,6 +65,12 @@ public class StudentImpl implements StudentDAO {
 
 
 		
+	}
+
+	@Override
+	public List<StudentPojo> getSectionDetails() {
+		
+		return null;
 	}
 
 }
