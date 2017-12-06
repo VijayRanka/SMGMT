@@ -246,7 +246,7 @@ function setSelected() {
     <script src="/SMGMT/Config/plugins/bootstrap/js/bootstrap.js"></script>
 
 <!--     Select Plugin Js -->
-    <script src="/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- <script src="/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
 <!--     Slimscroll Plugin Js -->
     <script src="/SMGMT/Config/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
