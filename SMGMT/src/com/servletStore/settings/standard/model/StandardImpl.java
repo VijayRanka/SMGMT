@@ -32,7 +32,7 @@ public class StandardImpl implements StandardDAO{
 		PreparedStatement ps;
 		try {
 			ps = connection.prepareStatement(query);
-			ps.setString(1, standardPojo.getName());
+			ps.setString(1, standardPojo.getStdName());
 			status = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -55,7 +55,7 @@ public class StandardImpl implements StandardDAO{
 				//System.out.println("id "+rs.getInt("id") + " "+ rs.getString("name"));
 				StandardPOJO stdpojo=new StandardPOJO();
 				stdpojo.setId(rs.getInt("id"));
-				stdpojo.setName(rs.getString("name"));
+				stdpojo.setStdName(rs.getString("name"));
 				list.add(stdpojo);			
 			}
 		} catch (SQLException e) {
@@ -117,6 +117,31 @@ public class StandardImpl implements StandardDAO{
 			e.printStackTrace();
 		}
 		return r;
+	}
+
+	@Override
+	public List<StandardPOJO> getClassDetails() {
+		
+		List<StandardPOJO> list=new ArrayList<StandardPOJO>();
+		String query="SELECT fk_class_master.id, school_master.name, sections_master.name, std_master.name FROM school_master, sections_master, std_master, fk_class_master WHERE std_master.id=fk_class_master.std_id AND  fk_class_master.fk_school_sec_id IN (SELECT fk_school_section_details.id FROM fk_school_section_details WHERE school_master.id=fk_school_section_details.school_id AND sections_master.id=fk_school_section_details.section_id)";
+		try {
+			ps = connection.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()){
+				StandardPOJO stdPojo = new StandardPOJO();
+				stdPojo.setFkClassId(rs.getInt(1));
+				stdPojo.setSchoolName(rs.getString(2));
+				stdPojo.setSectionName(rs.getString(3));
+				stdPojo.setStdName(rs.getString(4));
+				list.add(stdPojo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	

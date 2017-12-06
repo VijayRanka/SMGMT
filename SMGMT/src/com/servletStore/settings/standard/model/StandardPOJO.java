@@ -2,28 +2,26 @@ package com.servletStore.settings.standard.model;
 
 public class StandardPOJO {
 
-		private int id;
-		private String name;
+		private int id, stdId, schoolSectionId, schoolId, sectionId, fkClassId;
+		private String schoolName, sectionName, stdName;
 		
-		private int stdId;
-		private int schoolSectionId;
-		
-		private int schoolId;
-		private int sectionId;
-		
-		
-		
+		public int getFkClassId() {
+			return fkClassId;
+		}
+		public void setFkClassId(int fkClassId) {
+			this.fkClassId = fkClassId;
+		}
+		public String getStdName() {
+			return stdName;
+		}
+		public void setStdName(String stdName) {
+			this.stdName = stdName;
+		}
 		public int getId() {
 			return id;
 		}
 		public void setId(int id) {
 			this.id = id;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
 		}
 		
 		
@@ -53,6 +51,17 @@ public class StandardPOJO {
 		}
 		
 		
-		
+		public String getSchoolName() {
+			return schoolName;
+		}
+		public void setSchoolName(String schoolName) {
+			this.schoolName = schoolName;
+		}
+		public String getSectionName() {
+			return sectionName;
+		}
+		public void setSectionName(String sectionName) {
+			this.sectionName = sectionName;
+		}
 		
 }
