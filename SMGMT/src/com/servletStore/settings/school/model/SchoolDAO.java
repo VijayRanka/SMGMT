@@ -11,5 +11,8 @@ public interface SchoolDAO {
 	public List<SchoolPOJO> getSection(SchoolPOJO schoolPojo);
 	public List<SchoolPOJO> selectSchoolDetails(SchoolPOJO schoolPojo,int id);
 	public int deleteSchool(int id);
+	public void insertSection(List list);
+	public String selectSection(int id);
+	
 	
 }

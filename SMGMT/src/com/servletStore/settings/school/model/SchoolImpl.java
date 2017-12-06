@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -55,14 +56,7 @@ public class SchoolImpl implements SchoolDAO{
 			{
 				
 				
-
-					String school_section="INSERT INTO fk_school_section_details(school_id,section_id) VALUES(?,?)";
-					pstmt=conn.prepareStatement(school_section);
-					pstmt.setInt(1, schoolPojo.getId());
-					pstmt.setInt(2, schoolPojo.getSection_id());
-					int j=pstmt.executeUpdate();
-					//System.out.println("Section id:"+schoolPojo.getSection_id());
-					System.out.println("Section Id Inserted Successfully");
+					
 				
 			}
 			
@@ -224,7 +218,7 @@ public class SchoolImpl implements SchoolDAO{
 				
 		try {
 
-			String selectModalDetails="SELECT school_master.id,school_master.name,school_master.address,school_master.slogan,school_master.index_no,school_master.licence_no,school_master.udise,school_master.school_code,school_master.email_id,school_master.email_id,school_master.phone_no,school_master.board,school_master.punit_code,school_master.center,school_master.date,school_master.jubilee_year,school_master.establish_year,school_master.medium,sections_master.name FROM school_master,sections_master WHERE school_master.id=sections_master.id AND school_master.id=?";
+			String selectModalDetails="SELECT school_master.id,school_master.name,school_master.address,school_master.slogan,school_master.index_no,school_master.licence_no,school_master.udise,school_master.school_code,school_master.email_id,school_master.email_id,school_master.phone_no,school_master.board,school_master.punit_code,school_master.center,school_master.date,school_master.jubilee_year,school_master.establish_year,school_master.medium FROM school_master WHERE school_master.id=?";
 			pstmt=conn.prepareStatement(selectModalDetails);
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
@@ -255,29 +249,104 @@ public class SchoolImpl implements SchoolDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
+		}	
 		return list;
 	}
-
-
-
+	
 		@Override
 		public int deleteSchool(int id) 
 		{
 			  int status=0;  
 			        try{  
 			            
-			            PreparedStatement ps=conn.prepareStatement("delete from school_master where id=?");  
-			            ps.setInt(1,id);  
-			            status=ps.executeUpdate();  
+			            pstmt=conn.prepareStatement("delete from school_master where id=?");  
+			            pstmt.setInt(1,id);  
+			            status=pstmt.executeUpdate();  
 			            System.out.println("Deleted Successfully");
 			         
 			        }catch(Exception e){e.printStackTrace();}  
 			          
 			        return status;    
 		
+		}
+
+		@Override
+		public void insertSection(List list) {
+				int scid=0;
+				
+				String query="SELECT MAX(id) as id FROM school_master";
+				try {
+					pstmt=conn.prepareStatement(query);
+					ResultSet rs=pstmt.executeQuery();
+				   while(rs.next())
+				   {
+					   System.out.println("ertyuiop;lk");
+					   scid = rs.getInt("id");
+					   System.out.println("scool:"+scid);
+				   }
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				Iterator itr=list.iterator();
+				while(itr.hasNext())
+				{
+					SchoolPOJO schoolPojo=(SchoolPOJO)itr.next();
+				
+					String school_section="INSERT INTO fk_school_section_details(school_id,section_id) VALUES(?,?)";
+					try {
+						pstmt=conn.prepareStatement(school_section);
+						pstmt.setInt(1, scid);
+						pstmt.setInt(2, schoolPojo.getSection_id());
+						int j=pstmt.executeUpdate();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					//System.out.println("Section id:"+schoolPojo.getSection_id());
+					System.out.println("Section Id Inserted Successfully");
+				}
+				
+			
+		}
+
+
+
+		@Override
+		public String selectSection(int id) {
+			String section="";
+			String query="SELECT sections_master.name FROM sections_master WHERE sections_master.id IN(SELECT fk_school_section_details.section_id FROM fk_school_section_details WHERE fk_school_section_details.school_id=?)";
+			try {
+				
+				pstmt=conn.prepareStatement(query);
+				pstmt.setInt(1, id);
+				ResultSet rs=pstmt.executeQuery();
+				while(rs.next())
+				{/*
+					if(rs.last()) {
+						section+=rs.getString(1);
+					}
+					else{
+						section+=rs.getString(1)+", ";
+					}*/
+						
+					section+=rs.getString(1)+", ";
+					
+				}
+				System.out.println("section:"+section);
+				
+				
+					} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return section;
+			
 		}
 
 

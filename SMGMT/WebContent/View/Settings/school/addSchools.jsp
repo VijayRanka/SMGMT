@@ -42,8 +42,7 @@
 	                           
 								<div class="row clearfix">			
 								
-								  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"  style="float: right;">
-                                   
+								  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"  style="float: right;">                                   
                                     <img id="blah" src="/SMGMT/View/Settings/school/images/thumb-1.jpg" alt="your image" style="margin-left: -108px;margin-top: -17px;height: 236px;width: 341px;"/>
                                        <input type='file' onchange="readURL(this);"  style="margin-top: 7px;margin-left: -108px;"/><span style="color: red;margin-left: 85px;">*image:235x240</span>
                                 </div>						
@@ -72,7 +71,7 @@
 								 			String sectionList=((SchoolPOJO)pobj).getSectionName();
 										 %>                
                                                                 		                              			             		
-                                        <option id="<%=id%>"><%=sectionList%></option>   
+                                        <option value="<%=id%>"><%=sectionList%></option>   
 										<%} %>                                
                                         </select>                               
 
@@ -277,7 +276,7 @@
                                    <%
                                    int id=0,count=1;                                  	 
 								   	List<SchoolPOJO> li=schooldao.getSchoolDetails();	
-								   	
+						
 								 	Iterator itr1=li.iterator();
 								 	
                                    %>
@@ -287,13 +286,14 @@
                                         {
                                         	
                                         	SchoolPOJO Pojo=(SchoolPOJO)itr1.next();
-                                        	int id1=((SchoolPOJO)Pojo).getId();                           	
+                                        	int id1=((SchoolPOJO)Pojo).getId();  
+                                        	String sectionList=schooldao.selectSection(id1);
                                         
                                         %>
                                       <tr class="gradeX">
 										<td id="<%=id1%>"><%=count%></td>
 										<td><%=((SchoolPOJO)Pojo).getName()%></td>
-										<td><%=((SchoolPOJO)Pojo).getSectionName()%></td>
+										<td><%=sectionList%></td>
 										<td><%=((SchoolPOJO)Pojo).getAddress()%></td>
 										<td><%=((SchoolPOJO)Pojo).getSlogan()%></td>
 										<td><%=((SchoolPOJO)Pojo).getIndexno()%></td>
@@ -340,14 +340,10 @@
 								<div class="row clearfix">
 
 
-							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
-								style="float: right;">
-								<a data-sub-html="Demo Description"> <img
-									class="img-responsive thumbnail"
-									src="/SMGMT/View/Settings/school/images/thumb-1.jpg"
-									style="margin-left: -100px; margin-top: 32px; height: 236px;">
-								</a>
-							</div>
+							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"  style="float: right;">                                   
+                                    <img id="blah" src="/SMGMT/View/Settings/school/images/thumb-1.jpg" alt="your image" style="margin-left: -97px;margin-top: -17px;height: 241px; width: 310px;"/>
+                                       <input type='file' onchange="readURL(this);"  style="margin-top: 7px;margin-left: -98px;"/><span style="color: red;margin-left: 85px;">*image:235x240</span>
+                                </div>	
 
 							<div class="col-md-8">
 										<div class="form-group form-float">
@@ -359,27 +355,7 @@
 										</div>
 									</div>								
 									
-								<%-- 	
-								  <div class="col-md-8"> 
-									  
-								 	<select class="form-control show-tick" name="sectionList" id="sectionId" multiple title="Select Section" data-live-search="true">
-									 <%
-									    
-									 	List<SchoolPOJO> secList=schooldao.getSchoolInfo();
-									 	Iterator itr2=secList.iterator();
-									 	while(itr2.hasNext())
-									 	{									 		
-								 			
-								 			SchoolPOJO pobj = (SchoolPOJO)itr2.next();	
-								 			int id1=((SchoolPOJO)pobj).getSection_id();
-								 			String sectionList=((SchoolPOJO)pobj).getSectionName();
-										 %>                
-                                                                		                              			             		
-                                        <option id="<%=id1%>"><%=sectionList%></option>   
-										<%} %>                                
-                                        </select>                               
-
-                             	   </div> --%>
+								
 																	
 									<div class="col-md-8">
 										<div class="form-group form-float">

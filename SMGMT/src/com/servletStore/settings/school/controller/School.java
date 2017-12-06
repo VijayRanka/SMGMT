@@ -2,6 +2,7 @@ package com.servletStore.settings.school.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class School extends HttpServlet {
 		SchoolPOJO schoolPojo = new SchoolPOJO();
 		SchoolDAO schoolDAO = new SchoolImpl();
 		
+		List<SchoolPOJO> list=new ArrayList<>();
 		
 		
 		if(request.getParameter("SchoolSubmitBtn")!=null)
@@ -55,13 +57,8 @@ public class School extends HttpServlet {
 			
 			String[] selectList=request.getParameterValues("sectionList");
 			String sectionList="";
-			for(int i=0;i<selectList.length;i++)
-			{
-				sectionList=selectList[i];
-				System.out.println("List is:"+sectionList);
 			
-			}
-					
+			
 			schoolPojo.setName(schoolNameInEnglish);
 			schoolPojo.setAddress(schoolAddress);
 			schoolPojo.setSlogan(slogan);
@@ -78,20 +75,31 @@ public class School extends HttpServlet {
 			schoolPojo.setJubileeYear(jubileeYear);
 			schoolPojo.setEstablishYear(establishYear);
 			schoolPojo.setMedium(medium);
-			
 			schoolPojo.setSectionName(sectionList);
 			
-			schoolDAO.addSchool(schoolPojo);			
+			
+			schoolDAO.addSchool(schoolPojo);	
+			
+			for(int i=0;i<selectList.length;i++)
+			{
+				SchoolPOJO pojo=new SchoolPOJO();
+				pojo.setSection_id(Integer.parseInt(selectList[i]));		
+				list.add(pojo);
+				
+			}
+			schoolDAO.insertSection(list);
 			response.sendRedirect("/SMGMT/View/Settings/school/addSchools.jsp");			
 		}
+		
+		
 		
 		if(request.getParameter("schoolid")!=null)
 		{			
 			String schoolId=request.getParameter("schoolid");
 			int id=Integer.parseInt(schoolId);
 			
-			List list=schoolDAO.selectSchoolDetails(schoolPojo,id);
-			Iterator itr=list.iterator();
+			List list1=schoolDAO.selectSchoolDetails(schoolPojo,id);
+			Iterator itr=list1.iterator();
 			while(itr.hasNext())
 			{
 				SchoolPOJO schoolPojo1=(SchoolPOJO)itr.next();	
@@ -130,7 +138,7 @@ public class School extends HttpServlet {
 				
 				String medium=((SchoolPOJO)schoolPojo1).getMedium();
 				
-				System.out.print(id1+","+schoolName+","+address+","+slogan+","+indexNo+","+licenceNo+","+udise+","+schoolCode+","+email+","+phoneNo+","+board+","+punitCode+","+center+","+date+","+jubileeYear+","+establishYear+","+medium);
+				out.print(id1+","+schoolName+","+address+","+slogan+","+indexNo+","+licenceNo+","+udise+","+schoolCode+","+email+","+phoneNo+","+board+","+punitCode+","+center+","+date+","+jubileeYear+","+establishYear+","+medium);
 			}
 		}
 		
