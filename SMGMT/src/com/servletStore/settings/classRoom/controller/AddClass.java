@@ -1,7 +1,10 @@
 package com.servletStore.settings.classRoom.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,35 +17,33 @@ import com.servletStore.settings.classRoom.model.AddClassPOJO;
 
 
 public class AddClass extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		AddClassDAO addclassdao=new AddClassImpl();
+		PrintWriter out = response.getWriter();
+		String sectionId = request.getParameter("sectionId");
+		String schoolId = request.getParameter("schoolId");
 		
-		//get data
-		int count=Integer.parseInt(request.getParameter("rowCount"));
-		String[] addclass=new String[count];
+		System.out.println(schoolId+sectionId);
 		
-		//set value in array
-		for (int i = 0; i < count; i++) {
-			addclass[i]=request.getParameter("classRoom"+(i+1));
-		} 
+		AddClassDAO classDao = new AddClassImpl();
+		AddClassPOJO classPOJO = new AddClassPOJO();
 		
-		//set value in pojo
-		AddClassPOJO pojo=new AddClassPOJO();
-		pojo.setAddclass(addclass);
+		List list = classDao.getStandards(schoolId, sectionId);
+		Iterator itr = list.iterator();
+		String s="";
 		
-		//insert value
-		try {
-			addclassdao.insertClassDetails(pojo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while(itr.hasNext()){
+			s += itr.next()+",";
 		}
+		out.print(s);
+		System.out.println(s);
+		//response.sendRedirect("View/Settings/Class/AddClass.jsp");	
 		
-		response.sendRedirect("View/Settings/Class/AddClass.jsp");	
-		
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 	}
 
 }

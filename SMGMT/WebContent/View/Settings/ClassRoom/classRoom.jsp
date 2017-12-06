@@ -172,7 +172,7 @@
 <script type="text/javascript">
 
 function getStandards() {
-	alert();
+alert();
 	var schoolId = <%=session1.getAttribute("schoolId") %>;
 	var sectionId = document.getElementById("sectionId").value;
 	alert(schoolId+sectionId);
@@ -180,54 +180,13 @@ function getStandards() {
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			var demoStr = this.responseText;
+			//alert(demoStr);
 			
-			var demoStr = this.responseText.split(",");
-			
-			var select = document.getElementById('sectionId');
-			
-			$("#sectionId").empty();
-			 var g = document.getElementById("demoSelect").children;
-			 var f = g[0].children;
-			 var d = f[0].children; 
-			 var z = d[1].children;
-			 var c = z[1].children;
-			 z[1].innerHTML="";
-			 var y = d[0].children;
-			 y[0].innerHTML="Select Section";
-			
-			var txt="";
-			 var opt1 = document.createElement('option');
-			 opt1.className = "bs-title-option";
-		     opt1.value = "";
-		     opt1.innerHTML =  "Select Section";
-		     select.appendChild(opt1);
-		     
-		     
-			var count=1;
-			 for (var i = 0; i<demoStr.length-1; i++){
-				 
-				 var scid = demoStr[i];
-				 var scname = demoStr[++i];
-			     var opt = document.createElement('option');
-			     opt.value = scid;
-			     opt.innerHTML =  scname;
-			     select.appendChild(opt);
-				        
-			     txt+= "<li data-original-index='"+(count)+"' class=''> " +
-			        	"<a tabindex='0' class='' style='' data-tokens='null'>" + 
-			        		"<span class='text'>"+scname+"</span> " +
-			        		"<span class='glyphicon glyphicon-ok check-mark'></span> "+
-			        	"</a>"+
-			        "</li>";
-				
-			     count++; 
-			 }
-			 
-			 z[1].innerHTML=txt;
 		}
 	};
 	
-	xhttp.open("POST", "/SMGMT/AddStandard?schoolId="+sid, true);
+	xhttp.open("POST", "/SMGMT/AddClass?schoolId="+schoolId+"&sectionId="+sectionId, true);
 	xhttp.send();
 	
 }
