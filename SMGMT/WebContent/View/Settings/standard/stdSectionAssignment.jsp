@@ -99,7 +99,7 @@
 											<div class="form-group form-float">
 												<div class="demo-checkbox">
 			                                		<input type="checkbox" name="stds" id="basic_checkbox_<%=count1 %>" value="<%=id %>" />
-			                                		<label for="basic_checkbox_<%=count1 %>"><%=stdPojo1.getName() %></label>
+			                                		<label for="basic_checkbox_<%=count1 %>"><%=stdPojo1.getStdName() %></label>
 												</div>
 											</div>
 										</div>
@@ -134,7 +134,9 @@
                                     <thead>
                                         <tr>
                                             <th>Sr.No.</th>
-                                            <th>Standard Name</th>
+                                            <th>School Name</th>
+                                            <th>Section Name</th>
+                                            <th>Standard</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -142,17 +144,19 @@
                                     
                                     <%
                                     	StandardDAO sdao = new StandardImpl();
-                                    	List<StandardPOJO> l = sdao.getStandardDetails();
+                                    	List<StandardPOJO> l = sdao.getClassDetails();
                                    
 										int count=1;
                                     	Iterator itr = l.iterator();
                                     	while(itr.hasNext()){
                                     		StandardPOJO stdPojo = (StandardPOJO)itr.next();
-                                    		int id = stdPojo.getId();
+                                    		int id = stdPojo.getFkClassId();
                                     %>
                                         <tr>
                                             <td><%=count %></td>
-                                            <td><%=stdPojo.getName() %></td>
+                                            <td><%=stdPojo.getSchoolName() %></td>
+                                            <td><%=stdPojo.getSectionName()%></td>
+                                            <td><%=stdPojo.getStdName()%></td>
                                             <td><a href="#updateSection" data-toggle="modal"  onclick="searchName(<%=id%>)"><i class="material-icons">create</i></a> 
                                             	 <i class="material-icons">clear</i></td>
                                         </tr>

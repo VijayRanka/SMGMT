@@ -35,7 +35,7 @@ public class AddStandard extends HttpServlet {
 			String std_name = request.getParameter("standard_name");
 		
 			StandardPOJO stdPojo = new StandardPOJO();
-			stdPojo.setName(std_name);
+			stdPojo.setStdName(std_name);
 			
 			StandardDAO stdDao = new StandardImpl();
 			int i = stdDao.addStandard(stdPojo);
