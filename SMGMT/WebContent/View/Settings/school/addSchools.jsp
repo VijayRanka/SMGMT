@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <%@page import="utility.SysDate"%>
 <%@page import="java.util.Iterator"%>
@@ -39,30 +40,38 @@
                         <div class="body">
                             <form action="/SMGMT/School" id="form_validation" method="Post">
 	                           
-								<div class="row clearfix">									
+								<div class="row clearfix">			
+								
+								  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"  style="float: right;">                                   
+                                    <img id="blah" src="/SMGMT/View/Settings/school/images/thumb-1.jpg" alt="your image" style="margin-left: -108px;margin-top: -17px;height: 236px;width: 341px;"/>
+                                       <input type='file' onchange="readURL(this);"  style="margin-top: 7px;margin-left: -108px;"/><span style="color: red;margin-left: 85px;">*image:235x240</span>
+                                </div>						
 									<div class="col-md-8">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="school_name" id="SchoolName" onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="school_name" id="SchoolName" pattern="[a-z A-Z ,]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">School Name</label>
 											</div>
 										</div>
 									</div>								
 									
 									
-								 <div class="col-md-8">        
-								 	<select class="form-control show-tick" name="sectionList" multiple>
+								 <div class="col-md-8"> 
+									  
+								 	<select class="form-control show-tick" name="sectionList" multiple="multiple" title="Select Section" data-live-search="true">
 									 <%
 									    SchoolDAO schooldao=new SchoolImpl();
 									 	List<SchoolPOJO> list=schooldao.getSchoolInfo();
 									 	Iterator itr=list.iterator();
 									 	while(itr.hasNext())
 									 	{									 		
-								 			System.out.println("List :"+((SchoolPOJO)list.get(0)).getSection_id());
-								 			SchoolPOJO pobj = (SchoolPOJO)itr.next();								 		
+								 			
+								 			SchoolPOJO pobj = (SchoolPOJO)itr.next();	
+								 			int id=((SchoolPOJO)pobj).getSection_id();
+								 			String sectionList=((SchoolPOJO)pobj).getSectionName();
 										 %>                
                                                                 		                              			             		
-                                        <option value="<%= ((SchoolPOJO)pobj).getSection_id()%>"><%= ((SchoolPOJO)pobj).getSectionName()%></option>   
+                                        <option value="<%=id%>"><%=sectionList%></option>   
 										<%} %>                                
                                         </select>                               
 
@@ -71,7 +80,7 @@
 									<div class="col-md-8">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<textarea type="text" class="form-control" name="school_address"  onkeyup="this.value=this.value.toUpperCase()" required></textarea>
+												<textarea type="text" class="form-control" name="school_address"  pattern="[a-z A-Z ,]*" onkeyup="this.value=this.value.toUpperCase()" required></textarea>
 												<label class="form-label">School Address</label>
 											</div>
 										</div>
@@ -80,25 +89,25 @@
 									<div class="col-md-8">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="slogan"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="slogan"  pattern="[a-z A-Z ,]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">Slogan</label>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-8">
+									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="index_no"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="index_no" pattern="[a-z A-Z 0-9]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">Index No</label>
 											</div>
 										</div>
 									</div>
 									
 																
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="licence_no"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="licence_no"  pattern="[a- z A-Z 0-9]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">Licence No</label>
 											</div>
 										</div>
@@ -107,7 +116,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="udise"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="udise"  pattern="[a- z A-Z 0-9]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">UDISEi</label>
 											</div>
 										</div>
@@ -116,7 +125,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="school_code"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="school_code" pattern="[a- z A-Z 0-9]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">School Code</label>
 											</div>
 										</div>
@@ -134,7 +143,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="phone_no" required>
+												<input type="text" class="form-control" name="phone_no" pattern="[0-9]*" maxlength="10" required>
 												<label class="form-label">Phone No</label>
 											</div>
 										</div>
@@ -143,7 +152,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="board"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="board" pattern="[a- z A-Z]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">Board</label>
 											</div>
 										</div>
@@ -152,7 +161,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="punit_code"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="punit_code" pattern="[a- z A-Z 0-9]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">PUnit Code</label>
 											</div>
 										</div>
@@ -163,7 +172,7 @@
 										
 										
 											<div class="form-line">
-												<input type="text" class="form-control" name="center"  onkeyup="this.value=this.value.toUpperCase()" required>
+												<input type="text" class="form-control" name="center"  pattern="[a- z A-Z ]*" onkeyup="this.value=this.value.toUpperCase()" required>
 												<label class="form-label">Center</label>
 											</div>
 										</div>
@@ -183,7 +192,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="jubilee_year"  onkeyup="this.value=this.value.toUpperCase()" 
+												<input type="text" class="form-control" name="jubilee_year"  pattern="[0-9]*" maxlength="4" onkeyup="this.value=this.value.toUpperCase()" 
 												required>
 												<label class="form-label">Jubilee Year</label>
 											</div>
@@ -193,7 +202,7 @@
 									<div class="col-md-6">
 										<div class="form-group form-float">
 											<div class="form-line">
-												<input type="text" class="form-control" name="establish_year" required>
+												<input type="text" class="form-control" name="establish_year" pattern="[0-9]*" maxlength="4" required>
 												<label class="form-label">Establish Year</label>
 											</div>
 										</div>
@@ -267,9 +276,9 @@
                                    <%
                                    int id=0,count=1;                                  	 
 								   	List<SchoolPOJO> li=schooldao.getSchoolDetails();	
-								   	
+						
 								 	Iterator itr1=li.iterator();
-								 	System.out.println("lis is:"+li);
+								 	
                                    %>
                                     <tbody>
                                         <%
@@ -277,16 +286,14 @@
                                         {
                                         	
                                         	SchoolPOJO Pojo=(SchoolPOJO)itr1.next();
-                                        	int id1=((SchoolPOJO)Pojo).getSchool_id();                           	
+                                        	int id1=((SchoolPOJO)Pojo).getId();  
+                                        	String sectionList=schooldao.selectSection(id1);
                                         
                                         %>
                                       <tr class="gradeX">
 										<td id="<%=id1%>"><%=count%></td>
 										<td><%=((SchoolPOJO)Pojo).getName()%></td>
-										<%
-											
-										%>
-										<td><%=((SchoolPOJO)Pojo).getSectionName()%></td>
+										<td><%=sectionList%></td>
 										<td><%=((SchoolPOJO)Pojo).getAddress()%></td>
 										<td><%=((SchoolPOJO)Pojo).getSlogan()%></td>
 										<td><%=((SchoolPOJO)Pojo).getIndexno()%></td>
@@ -303,7 +310,7 @@
 										<td><%=((SchoolPOJO)Pojo).getEstablishYear()%></td>
 										<td><%=((SchoolPOJO)Pojo).getMedium()%></td>
 										<td><a href="#update" data-toggle="modal" onclick="searchSchool(<%=id1%>)"><i class="material-icons">create</i></a>
-										<a onclick="getDeleteId(<%=id1%>)" href="#DeleteConfirmBox" data-toggle='modal'><i class="material-icons">clear</i></a></td>
+										<a href="/SMGMT/School?deleteId=<%=id1%>"><i class="material-icons">clear</i></a></td>
 									</tr>
 									<%
 										count++;
@@ -324,48 +331,36 @@
      <div class="modal fade" id="update" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="largeModalLabel">Modal title</h4>
+                        <div class="modal-header" style="background-color: lightgrey;">
+                            <h4 class="modal-title" id="largeModalLabel">Update School Details</h4>
                         </div>
                         <div class="modal-body">
                             <form action="/SMGMT/School" id="form_validation" method="Post">
 	                           
-								<div class="row clearfix">	
-								
-															
-									<div class="col-md-8">
+								<div class="row clearfix">
+
+
+							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"  style="float: right;">                                   
+                                    <img id="blah" src="/SMGMT/View/Settings/school/images/thumb-1.jpg" alt="your image" style="margin-left: -97px;margin-top: -17px;height: 241px; width: 310px;"/>
+                                       <input type='file' onchange="readURL(this);"  style="margin-top: 7px;margin-left: -98px;"/><span style="color: red;margin-left: 85px;">*image:235x240</span>
+                                </div>	
+
+							<div class="col-md-8">
 										<div class="form-group form-float">
 											<div class="form-line ">
-											<input type="hidden" name="update_id" id="Updateid">	
-												<input type="text" class="form-control " name="school_name" id="school_nameid" onkeyup="this.value=this.value.toUpperCase()" autofocus required>
+											<input type="hidden" name="updateId" id="Updateid">	
+												<input type="text" class="form-control " name="school_name" id="schoolId" onkeyup="this.value=this.value.toUpperCase()" autofocus required>
 												<label class="form-label 'active'">School Name</label>
 											</div>
 										</div>
 									</div>								
 									
-									
-								 <div class="col-md-8">        
-								 	<select class="form-control show-tick" name="section_name" id="section_nameid" multiple>
-									 <%
-									    SchoolDAO dao=new SchoolImpl();
-									 	List<SchoolPOJO> list1=schooldao.getSchoolInfo();
-									 	Iterator itr2=list1.iterator();
-									 	while(itr2.hasNext())
-									 	{									 		
-								 			System.out.println("List :"+((SchoolPOJO)list.get(0)).getSection_id());
-								 			SchoolPOJO pobj = (SchoolPOJO)itr2.next();								 		
-										 %>                
-                                                                		                              			             		
-                                        <option value="<%= ((SchoolPOJO)pobj).getSection_id()%>"><%= ((SchoolPOJO)pobj).getSectionName()%></option>   
-										<%} %>                                
-                                        </select>                               
-
-                             	   </div>
+								
 																	
 									<div class="col-md-8">
 										<div class="form-group form-float">
 											<div class="form-line focused">
-												<textarea type="text" class="form-control" name="school_address" id="school_addressid" onkeyup="this.value=this.value.toUpperCase()" required></textarea>
+												<textarea type="text" class="form-control" name="school_address" id="school_addressid" onkeyup="this.value=this.value.toUpperCase()" style="margin-top: 20px;" required></textarea>
 												<label class="form-label">School Address</label>
 											</div>
 										</div>
@@ -502,9 +497,9 @@
 										</div>
 									</div>								
 								</div>                     
-			                        <div class="modal-footer">
-			                            <button type="submit" name="updateSubmitBtn" class="btn btn-link waves-effect">SAVE CHANGES</button>
-			                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+			                        <div class="modal-footer" style="background-color: lightgrey;margin-left: -25px;margin-right: -25px;margin-bottom: -15px;">
+			                            <button type="submit" name="updateSubmitBtn" class="btn btn-link waves-effect" style="background-color: green;color: white;">Update</button>
+			                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" style="background-color: red;color: white;">Close</button>
 			                        </div>                       		           
                             </form>
                         </div>
@@ -526,10 +521,10 @@
 				
 				var demoStr = this.responseText.split(",");
 				
-				document.getElementById("Updateid").value = demoStr[0];
-				 
-				document.getElementById("school_nameid").value = demoStr[1];	
+				document.getElementById("Updateid").value = demoStr[0];				 
+				document.getElementById("schoolId").value = demoStr[1];	
 				document.getElementById("school_addressid").value = demoStr[2];
+				alert(demoStr[2]);
 				document.getElementById("sloganid").value = demoStr[3];
 				document.getElementById("index_noid").value = demoStr[4];
 				document.getElementById("licence_noid").value = demoStr[5];
@@ -544,6 +539,7 @@
 				document.getElementById("jubilee_id").value = demoStr[14];
 				document.getElementById("establish_id").value = demoStr[15];
 				document.getElementById("medium_id").value = demoStr[16];
+				
 				
 				
 			
@@ -563,13 +559,24 @@
 	}
 	
 	
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+	
+	
 
 	function setFocusToTextBox() {
 		
 		document.getElementById("SchoolName").focus();
-		
-		showModal();
-		setSelectValue();
 		myFunction();
 	}
 
