@@ -10,5 +10,6 @@ public interface StandardDAO {
 	public int addStandard(StandardPOJO standardPojo);
 	public List<StandardPOJO> getStandardDetails();
 	List<SchoolPOJO> getSchoolDetails(); 
+	public int addClass(StandardPOJO standardPojo, String schoolID, String sectionId);
 	
 }

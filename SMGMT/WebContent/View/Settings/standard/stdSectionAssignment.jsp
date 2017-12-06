@@ -40,7 +40,7 @@
                             <h2>Standard Details</h2>
                         </div>
                         <div class="body">
-                            <form id="form_validation" action="/SMGMT/AddStandard" method="POST">
+                            <form id="form_validation" action="/SMGMT/StdSectionAssignment" method="POST">
 	                            
 								<div class="row clearfix">
 								
@@ -57,7 +57,7 @@
 				                                    	Iterator itr3 = l3.iterator();
 				                                    	while(itr3.hasNext()){
 				                                    		SchoolPOJO stdPojo3 = (SchoolPOJO)itr3.next();
-				                                    		int id3 = stdPojo3.getSchool_id();
+				                                    		int id3 = stdPojo3.getId();
 				                                    %>
 				                                    	<option value="<%=id3 %>"><%=stdPojo3.getName() %></option>
 														
@@ -73,25 +73,12 @@
 									</div>
 									
 									<div class="col-md-6">
-										<div class="form-group form-float">
+										<div class="form-group form-float" id="demoSelect">
 											<div class="form-line">
-			                                    <select class="form-control show-tick" name="sectionId" id="sectionId" title="Select Section" data-live-search="true" required="required">
-			                                        
-			                                        <%-- <%
-				                                    	SectionDAO sdao2 = new SectionImpl();
-				                                    	List<SectionPojo> l2 = sdao2.getSectionDetails();
-				                                   
-														int count2=1;
-				                                    	Iterator itr2 = l2.iterator();
-				                                    	while(itr2.hasNext()){
-				                                    		SectionPojo pojo2 = (SectionPojo)itr2.next();
-				                                    		int id2 = pojo2.getId();
-				                                    %>
-				                                            <option value="<%=id2 %>"> <%=pojo2.getName() %> </option>
-				                                     <%
-				                                     	count2++;
-				                                    	}
-				                                     %>   --%>
+											
+											
+			                                    <select class="form-control show-tick"  name="sectionId" id="sectionId" onchange="setSelected()" title="Select Section"  data-live-search="true"  required="required">
+
 			                                    </select>
 											</div>
 										</div>
@@ -111,7 +98,7 @@
 	                                    <div class="col-md-3">
 											<div class="form-group form-float">
 												<div class="demo-checkbox">
-			                                		<input type="checkbox" id="basic_checkbox_<%=count1 %>" checked />
+			                                		<input type="checkbox" name="stds" id="basic_checkbox_<%=count1 %>" value="<%=id %>" />
 			                                		<label for="basic_checkbox_<%=count1 %>"><%=stdPojo1.getName() %></label>
 												</div>
 											</div>
@@ -123,7 +110,7 @@
                                      %>  
 								</div>
                                 
-                                <button class="btn btn-primary waves-effect" type="submit">Add Standard</button>
+                                <button class="btn btn-primary waves-effect" type="submit">Generate Classes</button>
                             </form>
                         </div>
                     </div>
@@ -198,63 +185,62 @@ function getSections() {
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			
 			var demoStr = this.responseText.split(",");
-			/* 
-			for(var i=0; i<demoStr.length; i++){
-				$('<option>').val(demoStr[i]).text(demoStr[++i]).appendTo('#sectionId');
-			}
-			 */
+			
 			var select = document.getElementById('sectionId');
 			
 			$("#sectionId").empty();
+			 var g = document.getElementById("demoSelect").children;
+			 var f = g[0].children;
+			 var d = f[0].children; 
+			 var z = d[1].children;
+			 var c = z[1].children;
+			 z[1].innerHTML="";
+			 var y = d[0].children;
+			 y[0].innerHTML="Select Section";
+			
+			var txt="";
+			 var opt1 = document.createElement('option');
+			 opt1.className = "bs-title-option";
+		     opt1.value = "";
+		     opt1.innerHTML =  "Select Section";
+		     select.appendChild(opt1);
+		     
+		     
+			var count=1;
 			 for (var i = 0; i<demoStr.length-1; i++){
 				 
+				 var scid = demoStr[i];
+				 var scname = demoStr[++i];
 			     var opt = document.createElement('option');
-			     opt.value = demoStr[i];
-			     opt.innerHTML =  demoStr[++i];
+			     opt.value = scid;
+			     opt.innerHTML =  scname;
 			     select.appendChild(opt);
-			     
-			 }	
+				        
+			     txt+= "<li data-original-index='"+(count)+"' class=''> " +
+			        	"<a tabindex='0' class='' style='' data-tokens='null'>" + 
+			        		"<span class='text'>"+scname+"</span> " +
+			        		"<span class='glyphicon glyphicon-ok check-mark'></span> "+
+			        	"</a>"+
+			        "</li>";
+				
+			     count++; 
+			 }
 			 
-			//$.getScript('/SMGMT/Config/plugins/jquery/jquery.min.js', function() { /* alert() */});
-			//$.getScript('/SMGMT/Config/plugins/bootstrap/js/bootstrap.js', function() { /* alert() */});
-			//$.getScript('/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js', function() { /* alert() */});
-
-			
-			
-			$('script').each(function() {
-				alert("js");
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/jquery/jquery.min.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        
-			    }
-			});
-			
-			$('script').each(function() {
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap/js/bootstrap.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-			    }
-			});
-			
-			$('script').each(function() {
-			    if ($(this).attr('src') !== '/SMGMT/Config/plugins/bootstrap-select/js/bootstrap-select.js') {
-			        var old_src = $(this).attr('src');
-			        $(this).attr('src', '');
-			        //setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
-			    }
-			});
-	}
+			 z[1].innerHTML=txt;
+		}
 	};
 	
 	xhttp.open("POST", "/SMGMT/AddStandard?schoolId="+sid, true);
 	xhttp.send();
 	
-	
 }
 
+function setSelected() {
+	var selectedSection = document.getElementById("sectionId").value;
+	//alert(selectedSection);
+}
 
 </script>
 
@@ -328,6 +314,7 @@ function getSections() {
     <script src="/SMGMT/Config/js/pages/forms/form-validation.js"></script>
 	<script src="/SMGMT/Config/js/pages/forms/basic-form-elements.js"></script>
 	<script src="/SMGMT/Config/js/pages/tables/jquery-datatable.js"></script>
+	
 <!--     Demo Js -->
     <script src="/SMGMT/Config/js/demo.js"></script>
 </body>

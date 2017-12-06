@@ -258,7 +258,7 @@ $.AdminBSB.navbar = {
 *  You can manage the inputs(also textareas) with name of class 'form-control'
 *  
 */
-$.AdminBSB.input = {
+/*$.AdminBSB.input = {
     activate: function () {
         //On focus event
         $('.form-control').focus(function () {
@@ -288,7 +288,7 @@ $.AdminBSB.input = {
             }
         });
     }
-}
+}*/
 //==========================================================================================================================
 
 /* Form - Select - Function ================================================================================================
@@ -450,7 +450,7 @@ $(function () {
     $.AdminBSB.rightSideBar.activate();
     $.AdminBSB.navbar.activate();
     $.AdminBSB.dropdownMenu.activate();
-    $.AdminBSB.input.activate();
+   // $.AdminBSB.input.activate();
     $.AdminBSB.select.activate();
     $.AdminBSB.search.activate();
 
